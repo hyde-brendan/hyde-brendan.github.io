@@ -27,10 +27,12 @@ Users should be able to:
 
 #### Desktop
 ![Desktop solution](screenshots/solution-desktop.png)
+
 _(1440×800px)_
 
 #### Mobile
 ![Mobile solution](screenshots/solution-mobile.png)
+
 _(375×956px)_
 
 ### Links
