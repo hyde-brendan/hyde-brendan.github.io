@@ -1,0 +1,180 @@
+/* ==================== */
+/* Custom properties    */
+/* ==================== */
+
+:root {
+    /* Colors */
+    --clr-primary-extra-dark-hsl: 233 47% 7%;
+    --clr-primary-extra-dark: hsl( var(--clr-primary-extra-dark-hsl) );
+    --clr-primary-dark-hsl: 244 38% 16%;
+    --clr-primary-dark: hsl( var(--clr-primary-dark-hsl) );
+    --clr-primary-light-hsl: 277 64% 61%;
+    --clr-primary-light: hsl( var(--clr-primary-light-hsl) );
+    
+    --clr-text-dark-hsl: 0 0% 60%;
+    --clr-text-dark: hsl( var(--clr-text-dark-hsl) );
+    --clr-text-neutral-hsl: 0 0% 75%;
+    --clr-text-neutral: hsl( var(--clr-text-neutral-hsl) );
+    --clr-text-light-hsl: 0 0% 100%;
+    --clr-text-light: hsl( var(--clr-text-light-hsl) );
+
+    /* Font families */
+    --ff-sans-serif: 'Inter', sans-serif;
+    --ff-category: 'Lexend Deca', sans-serif;
+
+    /* Font weights */
+    --fw-light: 400;
+    --fw-bold: 700;
+
+    /* Font sizes */
+    --fs-900: clamp(1.75em, 7vw, 2.35em);
+    --fs-700: 1.35em;
+    --fs-400: clamp(0.9em, 3vw, 1.1em);
+    --fs-300: 0.45em;
+}
+
+
+/* ==================== */
+/* General reset        */
+/* ==================== */
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Reset margins */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set up body */
+body {
+    background-color: var(--clr-primary-extra-dark);
+    color: var(--clr-text-neutral);
+    font-family: var(--ff-sans-serif);
+    font-size: var(--fs-400);
+    text-align: center;
+    line-height: 1.5;
+    min-height: 100vh;
+
+    /* Center page contents */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 50em) {
+    body {
+        text-align: left;
+    }
+}
+
+
+/* ==================== */
+/* Utility classes      */
+/* ==================== */
+
+.text-primary-light { color: var(--clr-primary-light); }
+
+
+/* ==================== */
+/* Components           */
+/* ==================== */
+
+main {
+    padding-inline: 2rem;
+    overflow-x: hidden;
+}
+
+.main-content {
+    --padding: 2rem;
+    --gap: 0;
+
+    max-width: 72rem;
+    margin: 6rem auto;
+    border-radius: 0.5em;
+    background-color: var(--clr-primary-dark);
+    overflow: hidden;
+
+    display: grid;
+    grid-template-areas:
+        "image"
+        "content";
+    gap: var(--gap);
+}
+
+h1 {
+    color: var(--clr-text-light);
+    font-size: var(--fs-900);
+    line-height: 1.1;
+}
+
+h2 {
+    color: var(--clr-text-light);
+    font-size: var(--fs-700);
+}
+
+.content-image {
+    grid-area: image;
+    background-image: url(../images/image-header-mobile.jpg);
+    background-size: cover;
+    width: 100%;
+    aspect-ratio: 1 / 0.7;
+    background-color: var(--clr-primary-light);
+    background-blend-mode: multiply;
+}
+
+.head-info {
+    grid-area: content;
+    padding: var(--padding);
+}
+
+.subtitle {
+    margin-top: 1.5rem;
+}
+
+.accolades {
+    grid-area: accolades;
+    margin-top: calc(var(--padding) + 1rem);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    line-height: 1;
+}
+
+.accolade > span {
+    font-family: var(--ff-category);
+    font-size: var(--fs-300);
+    color: var(--clr-text-dark);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.attribution a {
+    text-decoration: none;
+}
+
+@media (min-width: 50em) {
+    .main-content {
+        --padding: clamp(2rem, 5vw, 4rem);
+        --gap: 1rem;
+
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "content image";
+    }
+
+    .content-image {
+        background-image: url(../images/image-header-desktop.jpg);
+        aspect-ratio: initial;
+        background-position: center;
+    }
+
+    .accolades {
+        flex-direction: row;
+        gap: 5rem;
+    }
+}
