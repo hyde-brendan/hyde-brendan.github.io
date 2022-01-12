@@ -1,0 +1,207 @@
+/* ==================== */
+/* Custom properties    */
+/* ==================== */
+
+:root {
+    /* Colors */
+    --clr-primary-extra-dark-hsl: 217 54% 11%;
+    --clr-primary-extra-dark: hsl( var(--clr-primary-extra-dark-hsl) );
+    --clr-primary-dark-hsl: 216 50% 16%;
+    --clr-primary-dark: hsl( var(--clr-primary-dark-hsl) );
+
+    --clr-accent-medium-hsl: 215 51% 70%;
+    --clr-accent-medium: hsl( var(--clr-accent-medium-hsl) );
+    --clr-accent-light-hsl: 178 100% 50%;
+    --clr-accent-light: hsl( var(--clr-accent-light-hsl) );
+
+    --clr-line-hsl: 215 32% 27%;
+    --clr-line: hsl( var(--clr-line-hsl) );
+
+    --clr-text-neutral-hsl: 215 51% 70%;
+    --clr-text-neutral: hsl( var(--clr-text-neutral-hsl) );
+    --clr-text-light-hsl: 0 0% 100%;
+    --clr-text-light: hsl( var(--clr-text-light-hsl) );
+
+
+    /* Font families */
+    --ff-sans-serif: 'Outfit', sans-serif;
+
+    /* Font weights */
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-semi-bold: 600;
+
+    /* Font sizes */
+    --fs-500: 1.25em;
+    --fs-400: clamp(1em, 4vw, 1.125em);
+    --fs-300: clamp(0.875em, 4vw, 0.95em);
+}
+
+
+/* ==================== */
+/* General reset        */
+/* ==================== */
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Reset margins */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set up body */
+body {
+    background-color: var(--clr-primary-extra-dark);
+    color: var(--clr-text-neutral);
+    font-family: var(--ff-sans-serif);
+    font-size: var(--fs-400);
+    font-weight: var(--fw-light);
+    line-height: 1.5;
+    min-height: 100vh;
+
+    /* Center page contents */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ==================== */
+/* Components           */
+/* ==================== */
+
+main {
+    padding-inline: 1.5rem;
+    overflow-x: hidden;
+}
+
+.main-content {
+    --corner-curve: 0.75em;
+
+    max-width: 22.5rem;
+    padding: 1.5em;
+    border-radius: var(--corner-curve);
+    background-color: var(--clr-primary-dark);
+    box-shadow: 0 0 0.25em hsl(0 0% 0% / 0.25);
+
+    display: grid;
+    gap: 1em;
+}
+
+.card--link, .card--image {
+    display: block;
+    overflow: hidden;
+    border-radius: var(--corner-curve);
+    position: relative;
+}
+
+.card--image {
+    background-size: cover;
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+.card--link::before, .card--link::after {
+    content: "";
+    position: absolute;
+    aspect-ratio: 1;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+}
+
+.card--link::before {
+    z-index: 1;
+    inset: 0;
+    width: 100%;
+    background-color: hsl( var(--clr-accent-light-hsl) / 0.5 );
+}
+
+.card--link::after {
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px;
+    background-image: url("../images/icon-view.svg");
+}
+
+.card--link:hover::before, .card--link:focus::before,
+.card--link:hover::after, .card--link:focus::after {
+    opacity: 1;
+}
+
+a {
+    color: var(--clr-text-light);
+    text-decoration: none;
+    transition: color 150ms ease-in-out;
+}
+
+a:hover, a:focus {
+    color: var(--clr-accent-light);
+}
+
+.header--title {
+    font-size: var(--fs-500);
+}
+
+.header--description {
+    padding: 1em 0 0.5em 0;
+}
+
+.details, .author {
+    font-size: var(--fs-300);
+}
+
+.details {
+    display: flex;
+    columns: 2;
+    justify-content: space-between;
+}
+
+.details--cost, .details--time {
+    display: flex;
+    align-items: center;
+}
+
+.details--cost {
+    color: var(--clr-accent-light);
+    font-weight: var(--fw-regular);
+}
+
+.details--cost::before, .details--time::before {
+    content: "";
+    display: block;
+    float: left;
+    margin-right: 0.5em;
+}
+
+.details--cost::before {
+    background-image: url(../images/icon-ethereum.svg);
+    width: 11px;
+    height: 18px;
+}
+
+.details--time::before {
+    background-image: url(../images/icon-clock.svg);
+    width: 17px;
+    aspect-ratio: 1;
+}
+
+.author {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    border-top: 1px solid var(--clr-line);
+    padding-top: 1em;
+}
+
+.author--image {
+    width: 2em;
+    border: 1px solid var(--clr-text-light);
+    border-radius: 50%;
+}
