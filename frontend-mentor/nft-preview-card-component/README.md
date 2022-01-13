@@ -52,13 +52,13 @@ _(375×667px)_
 
 ### What I learned
 
-In this project, I took a closer look at psuedo elements, particularly `::before` and `::after` for drawing images like the SVG icons on the hover over the main image, as well as next to the cost and remaining time fields. One challenge was finding how to vertically align the icons to their paired texts; declaring the main element with `display: flex;` with `align-items: center;`, and then setting the SVG as a block-level element was my solution.
+In this project, I took a closer look at pseudo elements, particularly `::before` and `::after` for drawing images like the SVG icons on the hover over the main image, as well as next to the cost and remaining time fields. One challenge was finding how to vertically align the icons to their paired texts; declaring the main element with `display: flex;` with `align-items: center;`, and then setting the SVG as a block-level element was my solution.
 
 Beyond that though, this project mostly consisted of fine-tuning the CSS to best match the provided design. I'm very happy with how it turned out!
 
 ### Continued development
 
-I'm curious if there are more preferable practices to how to manipulate images, both as psuedo elements as well as absolute position (as was the case with the eye icon when hovering over the main image).
+I'm curious if there are more preferable practices to how to manipulate images, both as pseudo elements as well as absolute position (as was the case with the eye icon when hovering over the main image).
 
 ### Useful resources
 

@@ -1,0 +1,248 @@
+/* ==================== */
+/* Custom properties    */
+/* ==================== */
+
+:root {
+    /* Colors */
+    --clr-primary-hsl: 238 50% 90%;
+    --clr-primary: hsl( var(--clr-primary-hsl) );
+
+    --clr-accent-dark-hsl: 179 100% 22%;
+    --clr-accent-dark: hsl( var(--clr-accent-dark-hsl) );
+    --clr-accent-hsl: 179 100% 31%;
+    --clr-accent: hsl( var(--clr-accent-hsl) );
+
+    --clr-dark-hsl: 220 15% 20%;
+    --clr-dark: hsl( var(--clr-dark-hsl) );
+
+    --clr-html: hsl(189 50% 61%);
+    --clr-css: hsl(227 45% 44%);
+
+    /* Font families */
+    --ff-sans-head: 'Raleway', sans-serif;
+    --ff-sans-body: 'Dosis', sans-serif;
+
+    /* Font sizes */
+    --fs-600: 1.5em;
+    --fs-500: 1.125em;
+    --fs-400: 1em;
+    --fs-300: 0.75em;
+}
+
+/* ==================== */
+/* General reset        */
+/* ==================== */
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Reset margins */
+body, h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--ff-sans-head);
+}
+
+/* Set up body */
+body {
+    color: hsl( var(--clr-dark) );
+    font-family: var(--ff-sans-body);
+    font-size: var(--fs-400);
+    line-height: 1.5;
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-columns: minmax(2rem, 1fr) minmax(0, 65rem) minmax(2rem, 1fr);
+}
+
+body > * {
+    grid-column: 2 / 3;
+}
+
+main {
+    width: 100%;
+}
+
+/* Easier images */
+img, picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* Easier form elements */
+input, button, textarea, select {
+    font: inherit
+}
+
+a {
+    text-decoration: none;
+    color: var(--clr-dark);
+}
+
+/* Remove animations if preferred */
+@media (prefers-reduced-motion: reduce) {  
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+/* ==================== */
+/* Utility classes      */
+/* ==================== */
+
+.flex {
+    display: flex;
+}
+
+.container {
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+}
+
+.flow > *:where(:not(:first-child)) {
+    margin-left: var(--flow-space, 0.75rem);
+}
+
+.bg-primary { background-color: var(--clr-primary); }
+.text-accent { color: var(--clr-accent); }
+.text-html { color:var(--clr-html) }
+.text-css { color:var(--clr-css) }
+
+.ff-sans-head { font-family: var(--ff-sans-head); }
+.fs-300 { font-size: var(--fs-300); }
+.fs-500 { font-size: var(--fs-500); }
+.fw-semi-bold { font-weight: 600; }
+.fw-extra-bold { font-weight: 800; }
+
+
+/* ==================== */
+/* Components           */
+/* ==================== */
+
+
+
+
+/* ==================== */
+/* Frontend Mentor      */
+/* ==================== */
+
+.fmentor-solutions {
+    --gap: 1.25rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: calc( var(--gap) / 2 );
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.fmentor-card {
+    --border-curve: 1rem;
+    --line-padding: 4px;
+
+    display: grid;
+    column-gap: var(--gap);
+    grid-template-columns: fit-content(15rem) 1fr fit-content(15ch);
+    grid-template-areas:
+        "picture title date"
+        "picture links links";
+
+    background-color: white;
+    border-radius: var(--border-curve);
+    overflow: hidden;
+    box-shadow: 0.25em 0.25em 0.25em hsl(0 0% 0% / 0.25);
+
+    transform: none;
+    transition: transform 200ms ease-in-out;
+}
+
+.fmentor-card:hover, .fmentor-card:focus-within {
+    transform: translateX( calc( var(--gap) * -2 ) );
+}
+
+.fmentor-card--image {
+    grid-area: picture;
+    width: min(15vw, 15rem);
+    height: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.fmentor-card--image img {
+    transition: transform 300ms ease-in-out;
+}
+
+.fmentor-card--image:hover img, .fmentor-card--image:focus img {
+    transform: scale(1.2);
+}
+
+.fmentor-card--title {
+    grid-area: title;
+    align-self: end;
+    justify-self: start;
+    padding-bottom: var(--line-padding);
+
+    text-transform: uppercase;
+    font-family: var(--ff-sans-head);
+    font-size: var(--fs-600);
+    font-weight: 800;
+    color: var(--clr-accent);
+    transition: color 100ms ease-in-out;
+}
+
+.fmentor-card--title:hover, .fmentor-card--title:focus {
+    color: var(--clr-accent-dark);
+}
+
+.fmentor-card--links {
+    grid-area: links;
+    display: flex;
+    justify-content: space-between;
+    padding-top: var(--line-padding);
+    padding-right: var(--gap);
+    position: relative;
+    font-weight: 300;
+}
+
+.fmentor-card--links::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: calc( var(--gap) * -1 );
+    width: 100%;
+    height: 1px;
+    background-color: hsl( var(--clr-dark-hsl) / 0.5 );
+}
+
+.fmentor-card--links > p {
+    display: flex;
+    align-items: flex-start;
+}
+
+.box-html, .box-css {
+    padding: 0.15em 0.75em;
+    border: 1px solid;
+    border-radius: var(--border-curve);
+}
+
+.box-html { border-color: var(--clr-html); }
+.box-css { border-color: var(--clr-css); }
+
+.fmentor-card--date {
+    grid-area: date;
+    align-self: end;
+    justify-self: end;
+    padding-right: var(--gap);
+    padding-bottom: var(--line-padding);
+    color: hsl( var(--clr-dark-hsl) / 0.5 );
+}

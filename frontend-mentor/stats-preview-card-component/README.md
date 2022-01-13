@@ -77,7 +77,7 @@ Aside from `background-blend-mode`, I played around with various other stuff tha
 
 ### Continued development
 
-Many of the properties I experimented with for this project I will no doubt continue to use going forth. In the future, I would like to practice more with is `clamp()` for font sizes, particularlly how to best pick the preferred variable, as well as more involved grid layouts.
+Many of the properties I experimented with for this project I will no doubt continue to use going forth. In the future, I would like to practice more with is `clamp()` for font sizes, particularly how to best pick the preferred variable, as well as more involved grid layouts.
 
 One other question I was unable to solve while creating this was if there exists a way to counteract padding specifically for a single element (the image). If I could, then much of my padding elsewhere could be removed.
 
