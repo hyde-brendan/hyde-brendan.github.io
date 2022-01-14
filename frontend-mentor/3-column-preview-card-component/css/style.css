@@ -1,0 +1,155 @@
+/* ==================== */
+/* Custom properties    */
+/* ==================== */
+
+:root {
+    /* Colors */
+    --clr-sedan-hsl: 31 77% 52%;
+    --clr-sedan: hsl( var(--clr-sedan-hsl) );
+    --clr-suv-hsl: 184 100% 22%;
+    --clr-suv: hsl( var(--clr-suv-hsl) );
+    --clr-luxury-hsl: 179 100% 13%;
+    --clr-luxury: hsl( var(--clr-luxury-hsl) );
+
+    --clr-neutral: hsl( 0 0% 100% / 0.75 );
+    --clr-light-hsl: 0 0% 95%;
+    --clr-light: hsl( var(--clr-light-hsl) );
+
+    /* Font families */
+    --ff-cursive: 'Big Shoulders Display', cursive;
+    --ff-sans-serif: 'Lexend Deca', sans-serif;
+
+    /* Font weights */
+    --fw-light: 300;
+    --fw-normal: 400;
+    --fw-bold: 700;
+
+    /* Font sizes */
+    --fs-700: 2.75em;
+    --fs-400: 0.9375em;
+}
+
+
+/* ==================== */
+/* General reset        */
+/* ==================== */
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Reset margins */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set up body */
+body {
+    background-color: var(--clr-light);
+    color: var(--clr-neutral);
+    font-family: var(--ff-sans-serif);
+    font-size: var(--fs-400);
+    font-weight: var(--fw-light);
+    line-height: 1.75;
+    min-height: 100vh;
+
+    /* Center page contents */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ==================== */
+/* Utility classes      */
+/* ==================== */
+
+.bg-sedan  { background-color: var(--clr-sedan); }
+.bg-suv    { background-color: var(--clr-suv); }
+.bg-luxury { background-color: var(--clr-luxury); }
+.text-sedan  { color: var(--clr-sedan); }
+.text-suv    { color: var(--clr-suv); }
+.text-luxury { color: var(--clr-luxury); }
+
+
+/* ==================== */
+/* Components           */
+/* ==================== */
+
+main {
+    padding: 6rem 1.25rem;
+    overflow-x: hidden;
+}
+
+.main-content {
+    --corner-curve: 0.75em;
+
+    max-width: 57.5rem;
+    border-radius: var(--corner-curve);
+    overflow: hidden;
+    display: flex;
+}
+
+.car-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 50em) {
+    .car-list {
+        flex-direction: row;
+    }
+}
+
+.car {
+    --gap: 2rem;
+
+    padding: 3.5em;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+}
+
+.car img {
+    width: 4em;
+    height: auto;
+}
+
+.car h2 {
+    margin: -1rem 0;
+    color: var(--clr-light);
+    font-family: var(--ff-cursive);
+    font-size: var(--fs-700);
+    text-transform: uppercase;
+}
+
+.car a {
+    margin-top: auto;
+    padding: 0.75em 2.2em;
+    width: max-content;
+    background-color: var(--clr-light);
+    outline: 2px solid var(--clr-light);
+    outline-offset: -1px;
+    border-radius: 3em;
+    font-weight: var(--fw-normal);
+    text-decoration: none;
+
+    transition: color 150ms ease-in-out, background-color 150ms ease-in-out;
+}
+
+@media (min-width: 50em) {
+    .car p {
+        margin-bottom: 3em;
+    }
+}
+
+.car a:hover, .car a:focus {
+    color: var(--clr-light);
+    background-color: transparent;
+}
