@@ -38,8 +38,8 @@ _(375×700px)_
 
 ### Links
 
-- [Solution Repository URL](https://github.com/hyde-brendan/hyde-brendan.github.io/tree/main/frontend-mentor/order-summary-card-component)
-- [Live Site URL](https://hyde-brendan.github.io/frontend-mentor/order-summary-card-component/index)
+- [Solution Repository URL](https://github.com/hyde-brendan/hyde-brendan.github.io/tree/main/frontend-mentor/order-summary-component)
+- [Live Site URL](https://hyde-brendan.github.io/frontend-mentor/order-summary-component/index)
 
 ## My process
 
