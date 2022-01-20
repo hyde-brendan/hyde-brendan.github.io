@@ -20,7 +20,7 @@
     /* Font sizes */
     --fs-200: 0.5em;
     --fs-300: 0.75em;
-    --fs-400: 1.25em;
+    --fs-400: 1.125em;
 
     /* Box shadow */
     /* https://shadows.brumm.af/ */
@@ -46,6 +46,8 @@
 body, h1, h2, p {
     margin: 0;
     padding: 0;
+
+    font-size: 1em;
 }
 
 /* Set up body */
@@ -86,6 +88,7 @@ body {
 
 .fs-200 { font-size: var(--fs-200); }
 .fs-300 { font-size: var(--fs-300); }
+.fs-400 { font-size: var(--fs-400); }
 .letter-spacing-1 { letter-spacing: 2px; }
 
 /* ==================== */
