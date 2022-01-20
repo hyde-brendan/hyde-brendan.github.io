@@ -50,6 +50,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Set up body */
 body {
+    background-image: url(../images/graph-paper.svg);
     color: hsl( var(--clr-dark) );
     font-family: var(--ff-sans-body);
     font-size: var(--fs-400);
@@ -172,10 +173,10 @@ a {
 
 .fmentor-card--image {
     grid-area: picture;
-    width: min(15vw, 15rem);
-    height: auto;
+    width: clamp(10rem, 15vw + 3rem, 15rem);
+    aspect-ratio: 9 / 5;
+    background-size: cover;
     overflow: hidden;
-    position: relative;
 }
 
 .fmentor-card--image img {
@@ -196,6 +197,7 @@ a {
     font-family: var(--ff-sans-head);
     font-size: var(--fs-600);
     font-weight: 800;
+    line-height: 1.1;
     color: var(--clr-accent);
     transition: color 100ms ease-in-out;
 }
