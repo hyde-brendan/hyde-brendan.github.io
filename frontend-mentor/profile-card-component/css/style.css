@@ -1,0 +1,161 @@
+/* ==================== */
+/* Custom properties    */
+/* ==================== */
+
+:root {
+    /* Colors */
+    --clr-primary-200-hsl: 185 75% 39%;
+    --clr-primary-200: hsl( var(--clr-primary-200-hsl) );
+    --clr-primary-400-hsl: 227 10% 46%;
+    --clr-primary-400: hsl( var(--clr-primary-400-hsl) );
+    --clr-primary-600-hsl: 229 23% 23%;
+    --clr-primary-600: hsl( var(--clr-primary-600-hsl) );
+
+    --clr-neutral-400-hsl: 0 0% 59%;
+    --clr-neutral-400: hsl( var(--clr-neutral-400-hsl) );
+
+    /* Font families */
+    --ff-sans-serif: 'Kumbh Sans', sans-serif;
+
+    /* Font sizes */
+    --fs-200: 0.5em;
+    --fs-300: 0.75em;
+    --fs-400: 1.25em;
+
+    /* Box shadow */
+    /* https://shadows.brumm.af/ */
+    --box-shadow:
+        0px 2.7px 9.1px rgba(0, 0, 0, 0.035),
+        0px 7.5px 25px rgba(0, 0, 0, 0.05),
+        0px 18.1px 60.3px rgba(0, 0, 0, 0.065),
+        0px 60px 200px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ==================== */
+/* General reset        */
+/* ==================== */
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Reset margins */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set up body */
+body {
+    background-image: url(../images/bg-pattern-top.svg), url(../images/bg-pattern-bottom.svg);
+    background-repeat: no-repeat, no-repeat;
+    background-position: right 45vw bottom 40vh, left 45vw top 40vh;
+
+    background-color: var(--clr-primary-200);
+    color: var(--clr-neutral-400);
+    font-family: var(--ff-sans-serif);
+    text-align: center;
+    font-weight: 400;
+    font-size: var(--fs-400);
+    line-height: 1.5;
+    min-height: 100vh;
+
+    /* Center page contents */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 37.5em) {
+    body {
+        background-position: right 50vw bottom 45vh, left 45vw top 55vh;
+    }
+}
+
+
+/* ==================== */
+/* Utility classes      */
+/* ==================== */
+
+.text-primary-600 { color: var(--clr-primary-600); }
+.fw-400 { font-weight: 400; }
+.fw-700 { font-weight: 700; }
+
+.fs-200 { font-size: var(--fs-200); }
+.fs-300 { font-size: var(--fs-300); }
+.letter-spacing-1 { letter-spacing: 2px; }
+
+/* ==================== */
+/* Components           */
+/* ==================== */
+
+main {
+    padding-inline: 1.5rem;
+}
+
+/* Main card */
+.main-content {
+    --corner-curve: 1em;
+    --padding: 2rem;
+
+    width: min(87.5vw, 22.5rem);
+    border-radius: var(--corner-curve);
+    background-color: white;
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+
+    display: grid;
+}
+
+.main-content > *:not(.card-hero):not(.card-header--image) {
+    padding: 1.25rem var(--padding);
+}
+
+/* Card image */
+.card-hero {
+    background-image: url(../images/bg-pattern-card.svg);
+    background-size: cover;
+    width: 100%;
+    aspect-ratio: 5 / 2;
+}
+
+/* Card profile image */
+.card-header--image {
+    margin-top: -2.5em;
+}
+
+.card-header--image img {
+    border-radius: 50%;
+    outline: 6px solid white;
+    outline-offset: -2px;
+}
+
+/* Card header */
+.card-header {
+    padding: 1em 0;
+    border-bottom: 1px solid hsl(var(--clr-neutral-400-hsl) / 0.25);
+}
+
+.card-header--name {
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+    margin-bottom: 0.25em;
+}
+
+/* Card numbers */
+.card-numbers {
+    margin: 0.5rem 0.25rem;
+    list-style-type: none;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5em;
+}
+
+.card-number {
+    line-height: 1;
+}
