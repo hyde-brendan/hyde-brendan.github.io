@@ -17,6 +17,8 @@
 
     --clr-html: hsl(189 50% 61%);
     --clr-css: hsl(227 45% 44%);
+    --clr-javascript: hsl(335 53% 60%);
+    --clr-api: hsl(78 65% 55%);
 
     /* Font families */
     --ff-sans-head: 'Raleway', sans-serif;
@@ -106,7 +108,7 @@ a {
 
 .container {
     margin-inline: auto;
-    padding-inline: 1.25rem;
+    padding: 1.25rem;
 }
 
 .flow > *:where(:not(:first-child)) {
@@ -117,6 +119,8 @@ a {
 .text-accent { color: var(--clr-accent); }
 .text-html { color:var(--clr-html) }
 .text-css { color:var(--clr-css) }
+.text-javascript { color:var(--clr-javascript) }
+.text-api { color:var(--clr-api) }
 
 .ff-sans-head { font-family: var(--ff-sans-head); }
 .fs-300 { font-size: var(--fs-300); }
@@ -231,7 +235,7 @@ a {
     align-items: flex-start;
 }
 
-.box-html, .box-css {
+.box-html, .box-css, .box-javascript, .box-api {
     padding: 0.15em 0.75em;
     border: 1px solid;
     border-radius: var(--border-curve);
@@ -239,6 +243,8 @@ a {
 
 .box-html { border-color: var(--clr-html); }
 .box-css { border-color: var(--clr-css); }
+.box-javascript { border-color: var(--clr-javascript); }
+.box-api { border-color: var(--clr-api); }
 
 .fmentor-card--date {
     grid-area: date;

@@ -1,0 +1,73 @@
+[
+    {
+        "name": "FAQ accordion card",
+        "date": "26-Jan-2022",
+        "tags": [ "html", "css", "javascript" ],
+        "links": {
+            "livepage": "https://hyde-brendan.github.io/frontend-mentor/faq-accordion-card/index",
+            "thumbnail": "frontend-mentor/faq-accordion-card/screenshots/solution-desktop.png",
+            "fmentor": "https://www.frontendmentor.io/solutions/faq-accordion-card-eIoG6wLq2",
+            "github": "https://github.com/hyde-brendan/hyde-brendan.github.io/tree/main/frontend-mentor/faq-accordion-card"
+        }
+    },
+
+    {
+        "name": "Profile card component",
+        "date": "20-Jan-2022",
+        "tags": [ "html", "css" ],
+        "links": {
+            "livepage": "https://hyde-brendan.github.io/frontend-mentor/profile-card-component/index",
+            "thumbnail": "frontend-mentor/profile-card-component/screenshots/solution-desktop.png",
+            "fmentor": "https://www.frontendmentor.io/solutions/profile-card-component-w-flexbox-grid-zqS2at5GC",
+            "github": "https://github.com/hyde-brendan/hyde-brendan.github.io/tree/main/frontend-mentor/profile-card-component"
+        }
+    },
+
+    {
+        "name": "Order summary component",
+        "date": "17-Jan-2022",
+        "tags": [ "html", "css" ],
+        "links": {
+            "livepage": "https://hyde-brendan.github.io/frontend-mentor/order-summary-component/index",
+            "thumbnail": "frontend-mentor/order-summary-component/screenshots/solution-desktop.png",
+            "fmentor": "https://www.frontendmentor.io/solutions/order-summary-component-w-gridflexbox-and-smooth-boxshadow-DMULruYNL",
+            "github": "https://github.com/hyde-brendan/hyde-brendan.github.io/tree/main/frontend-mentor/order-summary-component"
+        }
+    },
+
+    {
+        "name": "3-column preview card component",
+        "date": "14-Jan-2022",
+        "tags": [ "html", "css" ],
+        "links": {
+            "livepage": "https://hyde-brendan.github.io/frontend-mentor/3-column-preview-card-component/index",
+            "thumbnail": "frontend-mentor/3-column-preview-card-component/screenshots/solution-desktop.png",
+            "fmentor": "https://www.frontendmentor.io/solutions/3column-preview-card-component-HG-eFamCj",
+            "github": "https://github.com/hyde-brendan/hyde-brendan.github.io/tree/main/frontend-mentor/3-column-preview-card-component"
+        }
+    },
+
+    {
+        "name": "NFT preview card component",
+        "date": "12-Jan-2022",
+        "tags": [ "html", "css" ],
+        "links": {
+            "livepage": "https://hyde-brendan.github.io/frontend-mentor/nft-preview-card-component/index",
+            "thumbnail": "frontend-mentor/nft-preview-card-component/screenshots/solution-desktop.png",
+            "fmentor": "https://www.frontendmentor.io/solutions/nft-preview-card-component-rNt0-Z-fq",
+            "github": "https://github.com/hyde-brendan/hyde-brendan.github.io/tree/main/frontend-mentor/nft-preview-card-component"
+        }
+    },
+
+    {
+        "name": "Stats preview card component",
+        "date": "11-Jan-2022",
+        "tags": [ "html", "css" ],
+        "links": {
+            "livepage": "https://hyde-brendan.github.io/frontend-mentor/stats-preview-card-component/index",
+            "thumbnail": "frontend-mentor/stats-preview-card-component/screenshots/solution-desktop.png",
+            "fmentor": "https://www.frontendmentor.io/solutions/stats-preview-card-component-w-grid-backgroundblendmode-TkGAZbXPk",
+            "github": "https://github.com/hyde-brendan/hyde-brendan.github.io/tree/main/frontend-mentor/nft-preview-card-component"
+        }
+    }
+]
