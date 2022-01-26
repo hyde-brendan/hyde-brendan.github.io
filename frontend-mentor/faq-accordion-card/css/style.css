@@ -1,0 +1,250 @@
+/* ==================== */
+/* Custom properties    */
+/* ==================== */
+
+:root {
+    /* Colors */
+    --clr-primary-400-hsl: 14 88% 65%;
+    --clr-primary-400: hsl( var(--clr-primary-400-hsl) );
+    --clr-primary-700-hsl: 238 29% 16%;
+    --clr-primary-700: hsl( var(--clr-primary-700-hsl) );
+
+    --clr-neutral-200-hsl: 240 5% 91%;
+    --clr-neutral-200: hsl( var(--clr-neutral-200-hsl) );
+    --clr-neutral-400-hsl: 240 6% 50%;
+    --clr-neutral-400: hsl( var(--clr-neutral-400-hsl) );
+    --clr-neutral-700-hsl: 237 12% 33%;
+    --clr-neutral-700: hsl( var(--clr-neutral-700-hsl) );
+
+    --clr-gradient-300-hsl: 273 75% 66%;
+    --clr-gradient-300: hsl( var(--clr-gradient-300-hsl) );
+    --clr-gradient-400-hsl: 240 73% 65%;
+    --clr-gradient-400: hsl( var(--clr-gradient-400-hsl) );
+
+    /* Font families */
+    --ff-sans-serif: 'Kumbh Sans', sans-serif;
+
+    /* Font sizes */
+    --fs-400: 0.75em; /* 12px */
+    --fs-500: 1.083em; /* 13px */
+    --fs-700: 2.667em;  /* 32px */
+
+    /* Box shadow */
+    /* https://shadows.brumm.af/ */
+    --box-shadow:
+        0px 2.4px 12.8px -5px rgba(0, 0, 0, 0.058),
+        0px 8.4px 29.5px -5px rgba(0, 0, 0, 0.079),
+        0px 21.8px 56.3px -5px rgba(0, 0, 0, 0.093),
+        0px 54px 111.1px -5px rgba(0, 0, 0, 0.108),
+        0px 180px 320px -5px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ==================== */
+/* General reset        */
+/* ==================== */
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Reset margins */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+}
+
+/* Set up body */
+body {
+    background: linear-gradient(
+        var(--clr-gradient-300),
+        var(--clr-gradient-400)
+    );
+
+    color: var(--clr-neutral-400);
+    font-family: var(--ff-sans-serif);
+    font-weight: 400;
+    font-size: var(--fs-400);
+    line-height: 1.6;
+    min-height: 100vh;
+
+    /* Center page contents */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ==================== */
+/* Utility classes      */
+/* ==================== */
+
+.center { text-align: center; }
+.fs-500 { font-size: var(--fs-500); }
+.fs-700 { font-size: var(--fs-700); }
+
+.text-primary-700 { color: var(--clr-primary-700); }
+.text-neutral-700 { color: var(--clr-neutral-700); }
+
+
+/* ==================== */
+/* Components           */
+/* ==================== */
+
+main {
+    padding: 5rem 1.5rem;
+}
+
+/* Main card */
+.main-content {
+    max-width: 80em;
+    background-color: white;
+    border-radius: 1.5em;
+    padding-inline: 1.5rem;
+    padding-bottom: 4em;
+    margin-top: min(9em, 20vw); /* Allows adequate spacing for mobile hero image */
+    box-shadow: var(--box-shadow);
+
+    display: grid;
+    gap: 1em;
+    grid-template-areas:
+        "hero"
+        "title"
+        "accordion";
+}
+
+@media (min-width: 70em) {
+    main { 
+        padding-inline: 3rem;
+    }
+
+    .main-content {
+        padding: 0;
+        padding-right: 8em;
+        margin-top: 0;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 8em;
+        grid-template-areas: 
+            "hero title"
+            "hero accordion";
+    }
+}
+
+/* Card hero */
+.card-hero {
+    grid-area: hero;
+    position: relative;
+    margin: auto;
+    background-image: url(../images/bg-pattern-mobile.svg);
+    background-size: cover;
+    width: 85%;
+    max-width: 30em;
+    aspect-ratio: 30 / 13;
+}
+
+.card-hero::after {
+    content: "";
+    position: absolute;
+    top: -105%;
+    background-image: url(../images/illustration-woman-online-mobile.svg);
+    background-repeat: no-repeat;
+    width: 100%;
+    max-width: 30em;
+    aspect-ratio: 344 / 261;
+}
+
+@media (min-width: 70em) {
+    .card-hero {
+        background-image: url(../images/illustration-woman-online-desktop.svg), url(../images/bg-pattern-desktop.svg);
+        background-repeat: no-repeat, no-repeat;
+        background-size: auto, auto;
+        background-position: right -490% top 40%, right -10% top 65%;
+        width: 120%;
+        max-width: none;
+        aspect-ratio: 46 / 50;
+    }
+
+    .card-hero::after {
+        background-image: url(../images/illustration-box-desktop.svg);
+        top: 38.5%;
+        left: -20%;
+        aspect-ratio: 191 / 184;
+    }
+}
+
+/* Card title */
+.card-title {
+    grid-area: title;
+    align-self: end;
+}
+
+@media (min-width: 70em) {
+    .card-title {
+        text-align: left;
+    }
+}
+
+/* Card accordion */
+.card-accordion {
+    grid-area: accordion;
+}
+
+.container {
+    position: relative;
+    cursor: pointer;
+    border-bottom: 1px solid var(--clr-neutral-200);
+    padding: 1.2em 0;
+}
+
+.container .container--question {
+    position: relative;
+    padding-right: 10px;
+    transition: color 100ms ease-in-out;
+}
+
+.container:hover .container--question,
+.container:focus .container--question {
+    color: var(--clr-primary-400);
+}
+
+.container .container--question::after {
+    content: "";
+    /* display: inline-block; */
+    position: absolute;
+    background-image: url("../images/icon-arrow-down.svg");
+    width: 10px;
+    height: 7px;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    transition:
+        transform 300ms linear,
+        transform 300ms cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+.container.active .container--question::after {
+    transform: rotate(180deg) translateY(50%);
+}
+
+.container.active .container--question {
+    color: var(--clr-primary-700);
+    font-weight: 700;
+}
+
+.container .container--answer {
+    position: relative;
+    padding-right: 10px;
+    max-height: 0;
+    margin-top: 0;
+    overflow: hidden;
+    /* transition: max-height 250ms ease-out, margin-top 150ms linear; */
+}
+
+.container.active .container--answer {
+    max-height: 100%;
+    margin-top: 1em;
+    /* transition: max-height 250ms ease-in, margin-top 150ms linear; */
+}
