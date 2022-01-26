@@ -47,7 +47,7 @@ _(375×800px)_
 
 - CSS custom properties
 - Flexbox
-- Mobile-first workflow=
+- Mobile-first workflow
 
 ### What I learned
 
