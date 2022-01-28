@@ -1,0 +1,304 @@
+/* ==================== */
+/* Custom properties    */
+/* ==================== */
+
+:root {
+    /* Colors */
+    --clr-primary-200-hsl: 333 80% 67%;
+    --clr-primary-200: hsl( var(--clr-primary-200-hsl) );
+    --clr-primary-400-hsl: 300 43% 22%;
+    --clr-primary-400: hsl( var(--clr-primary-400-hsl) );
+
+    --clr-neutral-100-hsl: 0 0% 100%;
+    --clr-neutral-100: hsl( var(--clr-neutral-100-hsl) );
+    --clr-neutral-200-hsl: 300 24% 96%;
+    --clr-neutral-200: hsl( var(--clr-neutral-200-hsl) );
+    --clr-neutral-400-hsl: 303 10% 53%;
+    --clr-neutral-400: hsl( var(--clr-neutral-400-hsl) );
+
+    /* Font families */
+    --ff-sans-serif: 'Spartan', sans-serif;
+
+    /* Font sizes */
+    --fs-400: 0.875em; /* 14px */
+    --fs-300: 0.92857em; /* 13px */
+    --fs-700: clamp(2em, 5vw, 3em); /* 28px -> 42px */
+
+    /* Other */
+    --gap: 1em;
+    --border-radius: 0.5em;
+}
+
+.test {
+    color: hsl(300 43% 22%);
+    color: hsl(333 80% 67%);
+
+    color: hsl(303 10% 53%);
+    color: hsl(300 24% 96%);
+    color: hsl(0 0% 100%);
+}
+
+
+/* ==================== */
+/* General reset        */
+/* ==================== */
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Reset margins */
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+
+    font-size: 1em;
+}
+
+/* Set up body */
+body {
+    background-image: url(../images/bg-pattern-top-mobile.svg), url(../images/bg-pattern-bottom-mobile.svg);
+    background-repeat: no-repeat;
+    background-position: top left, bottom right;
+    background-size: 100%, 100% 50%;
+
+    background-color: var(--clr-neutral-100);
+    color: var(--clr-neutral-400);
+    font-family: var(--ff-sans-serif);
+    font-size: var(--fs-400);
+    font-weight: 400;
+    text-align: center;
+    line-height: 1.75;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Reset lists */
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+@media (min-width: 57.5em) {
+    body {
+        background-image: url(../images/bg-pattern-top-desktop.svg), url(../images/bg-pattern-bottom-desktop.svg);
+        background-size: auto, 75% 90%;
+    }
+}
+
+
+/* ==================== */
+/* Utility classes      */
+/* ==================== */
+
+.text-primary-200 { color: var(--clr-primary-200); }
+.text-primary-400 { color: var(--clr-primary-400); }
+.text-neutral-200 { color: var(--clr-neutral-200); }
+
+.bg-primary-400 { background-color: var(--clr-primary-400); }
+.bg-neutral-200 { background-color: var(--clr-neutral-200); }
+
+.fw-400 { font-weight: 400; }
+.fw-500 { font-weight: 500; }
+.fw-700 { font-weight: 700; }
+
+.fs-300 { font-size: var(--fs-300); }
+.fs-700 { font-size: var(--fs-700); }
+
+/* ==================== */
+/* Components           */
+/* ==================== */
+
+main {
+    padding: 6em 1.5rem;
+}
+
+.main-content {
+    max-width: 75em;
+    display: grid;
+    gap: 3em;
+    grid-template-areas:
+        "intro"
+        "ratings"
+        "reviews";
+    justify-items: center;
+}
+
+@media (min-width: 57.5em) {
+    .main-content {
+        grid-template-areas:
+            "intro ratings"
+            "reviews reviews";
+    }
+}
+
+/* Introduction */
+.introduction {
+    grid-area: intro;
+}
+
+.introduction > h1 {
+    margin: auto;
+    width: 12ch;
+    line-height: 1.1;
+}
+
+.introduction > p {
+    margin-top: 1em;
+    max-width: 37.5ch;
+}
+
+@media (min-width: 57.5em) {
+    .introduction {
+        text-align: left;
+        justify-self: flex-start;
+    }
+
+    .introduction > h1 {
+        margin: 0;
+    }
+}
+
+/* Ratings */
+.ratings {
+    grid-area: ratings;
+
+    width: 100%;
+    max-width: 40em;
+    display: flex;
+    gap: var(--gap);
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ratings > li {
+    --gap: 0.75em;
+
+    width: 100%;
+    max-width: 35em;
+    padding: 1.125em 2em;
+    background-color: var(--clr-neutral-200);
+    border-radius: var(--border-radius);
+
+    display: flex;
+    gap: var(--gap);
+    flex-direction: column;
+    align-items: center;
+}
+
+.stars {
+    white-space: nowrap;
+    line-height: 0;
+}
+
+.stars > img + img {
+    padding-left: 5px;
+}
+
+@media (min-width: 35em) {
+    .ratings > li {
+        --gap: 2em;
+        flex-direction: row;
+    }
+
+    .ratings li:nth-child(1) {
+        transform: translateX(-3em);
+    }
+
+    .ratings li:nth-child(3) {
+        transform: translateX(3em);
+    }
+}
+
+@media (min-width: 57.5em) {
+    .ratings {
+        width: max-content;
+        margin-left: auto;
+    }
+
+    .ratings > li {
+        padding-right: 5em;
+    }
+
+    .ratings li:nth-child(1) {
+        transform: translateX(-6em);
+    }
+    
+    .ratings li:nth-child(2) {
+        transform: translateX(-3em);
+    }
+
+    .ratings li:nth-child(3) {
+        transform: none;
+    }
+}
+
+/* Reviews */
+.reviews {
+    grid-area: reviews;
+
+    display: flex;
+    gap: var(--gap);
+    flex-direction: column;
+}
+
+.reviews > li {
+    width: 100%;
+    max-width: 25em;
+    padding: 2.25em 2em;
+    color: var(--clr-neutral-200);
+    background-color: var(--clr-primary-400);
+    text-align: left;
+    border-radius: var(--border-radius);
+}
+
+.review--details {
+    display: flex;
+    column-gap: 1.5em;
+    align-items: center;
+}
+
+.review--image {
+    height: 2.5em;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+.review--quote {
+    margin-top: 2em;
+}
+
+@media (min-width: 35em) {
+    .reviews li:nth-child(1) {
+        transform: translateX(-3em);
+    }
+
+    .reviews li:nth-child(3) {
+        transform: translateX(3em);
+    }
+}
+
+@media (min-width: 57.5em) {
+    .reviews {
+        --gap: 2em;
+        flex-direction: row;
+    }
+
+    .reviews li:nth-child(1) {
+        transform: none;
+    }
+
+    .reviews li:nth-child(2) {
+        transform: translateY(1em);
+    }
+
+    .reviews li:nth-child(3) {
+        transform: translateY(2em);
+    }
+}
