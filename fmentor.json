@@ -1,5 +1,17 @@
 [
     {
+        "name": "Social proof section",
+        "date": "28-Jan-2022",
+        "tags": [ "html", "css", "javascript" ],
+        "links": {
+            "livepage": "https://hyde-brendan.github.io/frontend-mentor/social-proof-section/index",
+            "thumbnail": "frontend-mentor/social-proof-section/screenshots/solution-desktop.png",
+            "fmentor": "https://www.frontendmentor.io/solutions/social-proof-section-w-flexbox-grid-tablet-view-3l7Dt6VKt",
+            "github": "https://github.com/hyde-brendan/hyde-brendan.github.io/tree/main/frontend-mentor/social-proof-section"
+        }
+    },
+
+    {
         "name": "FAQ accordion card",
         "date": "26-Jan-2022",
         "tags": [ "html", "css", "javascript" ],
