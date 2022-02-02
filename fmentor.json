@@ -1,5 +1,17 @@
 [
     {
+        "name": "Article preview component",
+        "date": "28-Jan-2022",
+        "tags": [ "html", "css", "javascript" ],
+        "links": {
+            "livepage": "https://hyde-brendan.github.io/frontend-mentor/article-preview-component/index",
+            "thumbnail": "frontend-mentor/article-preview-component/screenshots/solution-desktop.png",
+            "fmentor": "https://www.frontendmentor.io/solutions/article-preview-component-WiQFbboR0",
+            "github": "https://github.com/hyde-brendan/hyde-brendan.github.io/tree/main/frontend-mentor/article-preview-component"
+        }
+    },
+
+    {
         "name": "Social proof section",
         "date": "28-Jan-2022",
         "tags": [ "html", "css", "javascript" ],
