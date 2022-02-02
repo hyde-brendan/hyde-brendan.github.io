@@ -1,0 +1,371 @@
+/* ==================== */
+/* Custom properties    */
+/* ==================== */
+
+:root {
+    /* Colors */
+    --clr-primary-100-hsl: 210 46% 95%;
+    --clr-primary-100: hsl( var(--clr-primary-100-hsl) );
+    --clr-primary-200-hsl: 212 23% 69%;
+    --clr-primary-200: hsl( var(--clr-primary-200-hsl) );
+    --clr-primary-300-hsl: 214 17% 51%;
+    --clr-primary-300: hsl( var(--clr-primary-300-hsl) );
+    --clr-primary-400-hsl: 217 19% 35%;
+    --clr-primary-400: hsl( var(--clr-primary-400-hsl) );
+
+    /* Font families */
+    --ff-sans-serif: 'Manrope', sans-serif;
+
+    /* Font sizes */
+    --fs-400: 0.8125em; /* 13px */
+    --fs-700: clamp(1.231em, 3vw, 1.385em); /* 16px -> 18px */
+
+    /* Box shadow */
+    /* https://shadows.brumm.af/ */
+    --box-shadow:
+        0px 8.3px 5px hsl( var(--clr-primary-400-hsl) / 0.069 ),
+        0px 15.7px 9.4px hsl( var(--clr-primary-400-hsl) / 0.085 ),
+        0px 27.9px 16.8px hsl( var(--clr-primary-400-hsl) / 0.077 ),
+        0px 125px 75px hsl( var(--clr-primary-400-hsl) / 0.013 );
+}
+
+
+/* ==================== */
+/* General reset        */
+/* ==================== */
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing */
+*, *::before, **:active {
+    box-sizing: border-box;
+}
+
+/* Reset margins */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+}
+
+/* Set up body */
+body {
+    background-color: var(--clr-primary-100);
+    color: var(--clr-primary-300);
+    font-size: var(--fs-400);
+    font-family: var(--ff-sans-serif);
+    font-weight: 400;
+    line-height: 1.5;
+    min-height: 100vh;
+
+    /* Center page contents */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ==================== */
+/* Utility classes      */
+/* ==================== */
+
+.text-primary-200 { color: var(--clr-primary-200); }
+.text-primary-400 { color: var(--clr-primary-400); }
+.fw-700 { font-weight: 700; }
+.letter-spacing-4 { letter-spacing: 4px; }
+.uppercase { text-transform: uppercase; }
+
+
+/* ==================== */
+/* Components           */
+/* ==================== */
+
+main {
+    padding-inline: 1.5rem;
+}
+
+/* Main card */
+.main-content {
+    --gap: 2.25em;
+
+    background-color: white;
+    max-width: 50em;
+    border-radius: 1em;
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "hero"
+        "content"
+        "contact";
+    gap: var(--gap);
+}
+
+@media (min-width: 35em) {
+    .main-content {
+        overflow: visible;
+        grid-template-columns: 3fr 4fr;
+        grid-template-areas:
+            "hero content"
+            "hero contact";
+    }
+}
+
+/* Card image */
+.card-hero {
+    grid-area: hero;
+
+    background-image: url(../images/drawers.jpg);
+    background-size: cover;
+    width: 100%;
+    aspect-ratio: 13 / 8;
+    /* border-radius: 1em 1em 0 0; */
+}
+
+@media (min-width: 35em) {
+    .card-hero {
+        aspect-ratio: auto;
+        border-radius: 1em 0 0 1em;
+    }
+}
+
+/* Card content */
+.card-content {
+    grid-area: content;
+
+    padding-inline: var(--gap);
+}
+
+.card-content--title {
+    color: var(--clr-primary-400);
+    font-size: var(--fs-700);
+}
+
+.card-content--subtitle {
+    padding-top: calc( var(--gap) / 2 );
+    margin-bottom: calc( var(--gap) / -2.5 );
+}
+
+@media (min-width: 35em) {
+    .card-content {
+        padding-inline: 0;
+        padding-top: var(--gap);
+        padding-right: var(--gap);
+    }
+}
+
+/* Card contact */
+.card-contact {
+    grid-area: contact;
+
+    position: relative;
+    padding-top: calc( var(--gap) / 2 );
+    padding-bottom: calc( var(--gap) / 2 );
+}
+
+.card-contact-container {
+    position: relative;
+    display: flex;
+    gap: calc( var(--gap) / 2 );
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-contact--image-container {
+    padding-left: var(--gap);
+}
+
+.card-contact--share {
+    position: relative;
+    z-index: 999;
+    padding-right: var(--gap);
+    margin-left: auto;
+}
+
+.card-contact--image {
+    width: 40px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+.card-contact--tooltip-hidden {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(-110%);
+    transition: all 250ms ease-out;
+
+    position: absolute;
+    inset: 0;
+    background-color: var(--clr-primary-400);
+    /* border-radius: 0 0 1em 1em; */
+
+    display: flex;
+    gap: calc( var(--gap) / 2 );
+    flex-direction: row;
+    align-items: center;
+}
+
+.active .card-contact--tooltip-hidden {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    transition: all 250ms ease-in;
+}
+
+.card-contact--tooltip-hidden span {
+    padding-left: var(--gap);
+}
+
+.card-contact--tooltip-hidden a {
+    width: 20px;
+    aspect-ratio: 1;
+    background-color: white;
+    transition: background-color 100ms ease-in-out;
+}
+
+.fb-img {
+    -webkit-mask: url("../images/icon-facebook.svg") no-repeat center;
+    mask: url("../images/icon-facebook.svg") no-repeat center;
+}
+
+.tw-img {
+    -webkit-mask: url("../images/icon-twitter.svg") no-repeat center;
+    mask: url("../images/icon-twitter.svg") no-repeat center;
+}
+
+.pt-img {
+    -webkit-mask: url("../images/icon-pinterest.svg") no-repeat center;
+    mask: url("../images/icon-pinterest.svg") no-repeat center;
+}
+
+.fb-img:hover, .fb-img:focus,
+.tw-img:hover, .tw-img:focus,
+.pt-img:hover, .pt-img:focus {
+    background-color: var(--clr-primary-200);
+}
+
+.card-contact--popup-hidden {
+    display: none;
+}
+
+@media (min-width: 35em) {
+    .card-contact {
+        padding-right: var(--gap);
+    }
+
+    .card-contact--image-container {
+        padding-left: 0;
+    }
+
+    .card-contact--share {
+        padding-right: 0;
+    }
+
+    .card-contact--tooltip-hidden {
+        display: none;
+    }
+
+    .card-contact--popup-hidden {
+        visibility: hidden;
+        opacity: 0;
+        transition: all 200ms ease-out;
+
+        display: flex;
+        gap: calc( var(--gap) / 2 );
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        position: absolute;
+        bottom: 150%;
+        right: calc( -7.5em - 15px );
+        padding: calc( var(--gap) / 1.5 ) var(--gap);
+        width: 15em;
+        border-radius: 1em;
+        background-color: var(--clr-primary-400);
+    }
+
+    .card-contact--popup-hidden::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -10px;
+        border-width: 10px;
+        border-style: solid;
+        border-color: var(--clr-primary-400) transparent transparent transparent;
+    }
+
+    .active .card-contact--popup-hidden {
+        visibility: visible;
+        opacity: 1;
+        transition: all 150ms ease-in;
+    }
+
+    .card-contact--popup-hidden a {
+        display: inline-block;
+        width: 20px;
+        aspect-ratio: 1;
+        background-color: white;
+        transition: background-color 100ms ease-in-out;
+    }
+}
+
+/* Share button */
+.card-contact--share-bg {
+    position: relative;
+    width: 30px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: var(--clr-primary-100);
+    cursor: pointer;
+
+    transition: background-color 100ms ease-in-out;
+}
+
+.card-contact--share-bg:hover,
+.card-contact--share-bg:focus {
+    background-color: var(--clr-primary-300);
+}
+
+.active .card-contact--share-bg {
+    background-color: var(--clr-primary-300);
+    transition: background-color 100ms ease-in-out;
+}
+
+.active .card-contact--share-bg:hover,
+.active .card-contact--share-bg:focus {
+    background-color: var(--clr-primary-100);
+}
+
+.card-contact--share-bg::after {
+    content: "";
+    position: absolute;
+
+    transform: translate(50%, 50%);
+    width: 15px;
+    height: 13px;
+    background-color: var(--clr-primary-400);
+    -webkit-mask: url("../images/icon-share.svg") no-repeat center;
+    mask: url("../images/icon-share.svg") no-repeat center;
+    cursor: pointer;
+
+    transition: background-color 100ms ease-in-out;
+}
+
+.card-contact--share-bg:hover::after,
+.card-contact--share-bg:focus::after {
+    background-color: white;
+}
+
+.active .card-contact--share-bg::after {
+    background-color: white;
+    transition: background-color 100ms ease-in-out;
+}
+
+.active .card-contact--share-bg:hover::after,
+.active .card-contact--share-bg:focus::after {
+    background-color: var(--clr-primary-400);
+}
