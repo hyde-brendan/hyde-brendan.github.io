@@ -1,0 +1,238 @@
+/* ==================== */
+/* Custom properties    */
+/* ==================== */
+
+:root {
+    /* Colors */
+    --clr-neutral-100-hsl: 0 0% 98%;
+    --clr-neutral-100: hsl( var(--clr-neutral-100-hsl) );
+    --clr-neutral-400-hsl: 229 6% 66%;
+    --clr-neutral-400: hsl( var(--clr-neutral-400-hsl) );
+    --clr-neutral-700-hsl: 234 12% 34%;
+    --clr-neutral-700: hsl( var(--clr-neutral-700-hsl) );
+
+    --clr-supervisor-hsl: 180 62% 55%;
+    --clr-supervisor: hsl( var(--clr-supervisor-hsl) );
+    --clr-team-builder-hsl: 0 78% 62%;
+    --clr-team-builder: hsl( var(--clr-team-builder-hsl) );
+    --clr-karma-hsl: 34 97% 64%;
+    --clr-karma: hsl( var(--clr-karma-hsl) );
+    --clr-calculator-hsl: 212 86% 64%;
+    --clr-calculator: hsl( var(--clr-calculator-hsl) );
+
+    /* Font families */
+    --ff-sans-serif: 'Poppins', sans-serif;
+
+    /* Font sizes */
+    --fs-400: 0.9375em; /* 15px */
+    --fs-300: 0.8667em; /* 13px */
+    --fs-600: 1.3333em; /* 20px */
+    --fs-700: clamp(1.6em, 5vw, 2.2667em); /* 24px -> 34px */
+
+    /* Box shadow */
+    /* https://shadows.brumm.af/ */
+    --box-shadow:
+        0px 1.4px 3.6px rgba(0, 0, 0, 0.024),
+        0px 4px 10px rgba(0, 0, 0, 0.035),
+        0px 9.6px 24.1px rgba(41, 125, 194, 0.046),
+        0px 32px 80px rgba(41, 141, 255, 0.07);
+}
+
+.test {
+    color: hsl(0, 78%, 62%);
+    color: hsl(180, 62%, 55%);
+    color: hsl(34, 97%, 64%);
+    color: hsl(212, 86%, 64%);
+
+    color: hsl(234, 12%, 34%);
+    color: hsl(229, 6%, 66%);
+    color: hsl(0, 0%, 98%);
+}
+
+
+/* ==================== */
+/* General reset        */
+/* ==================== */
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Reset margins + standardize font sizes */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+}
+
+/* Set up body */
+body {
+    background-color: var(--clr-neutral-100);
+    color: var(--clr-neutral-400);
+    font-family: var(--ff-sans-serif);
+    font-size: var(--fs-400);
+    font-weight: 400;
+    text-align: center;
+    line-height: 1.75;
+    min-height: 100vh;
+
+    /* Center page contents */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Reset list margins */
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ==================== */
+/* Utility classes      */
+/* ==================== */
+
+.text-neutral-700 { color: var(--clr-neutral-700); }
+
+.fs-300 { font-size: var(--fs-300); }
+.fs-600 { font-size: var(--fs-600); }
+.fs-700 { font-size: var(--fs-700); }
+
+.fw-200 { font-weight: 200; }
+.fw-600 { font-weight: 600; }
+
+
+/* ==================== */
+/* Components           */
+/* ==================== */
+
+main {
+    padding: 5rem 2rem;
+    overflow-x: hidden;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4em;
+}
+
+/* Heading info */
+.header-info--title {
+    padding-bottom: 0.65em;
+    line-height: 1.5;
+}
+
+.header-info--description {
+    max-width: 55ch;
+    margin: auto;
+}
+
+/* Card */
+.grid-container {
+    display: grid;
+    gap: 1.35em;
+    grid-template-areas:
+        "supervisor"
+        "team-builder"
+        "karma"
+        "calculator";
+    justify-content: center;
+}
+
+@media (min-width: 40em) {
+    .grid-container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "supervisor ."
+            "supervisor team-builder"
+            "   karma   team-builder"
+            "   karma   calculator"
+            ".......... calculator";
+    }
+}
+
+@media (min-width: 60em) {
+    .grid-container {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas:
+            ".......... team-builder ."
+            "supervisor team-builder calculator"
+            "supervisor    karma     calculator"
+            "..........    karma     .";
+    }
+}
+
+.card {
+    --card-padding: 1.85em;
+
+    display: block;
+    position: relative;
+    min-height: 15em;
+    max-width: 25em;
+
+    padding: var(--card-padding);
+    padding-top: calc( var(--card-padding) - 0.5em );
+    background-color: white;
+    border-radius: 0.5em;
+    overflow: hidden;
+    text-align: left;
+
+    border-top: 5px solid;
+    box-shadow: var(--box-shadow);
+
+    transition: transform 200ms ease-in;
+}
+
+.card--supervisor {
+    grid-area: supervisor;
+    border-color: var(--clr-supervisor);
+}
+.card--team-builder {
+    grid-area: team-builder;
+    border-color: var(--clr-team-builder);
+}
+.card--karma {
+    grid-area: karma;
+    border-color: var(--clr-karma);
+}
+.card--calculator {
+    grid-area: calculator;
+    border-color: var(--clr-calculator);
+}
+
+.card:hover {
+    transform: scale(1.075);
+    transition: transform 150ms ease-out;
+}
+
+.card p {
+    max-width: 35ch;
+}
+
+/* Card icon */
+.card::after {
+    content: "";
+    position: absolute;
+    bottom: var(--card-padding);
+    right: var(--card-padding);
+    width: 64px;
+    aspect-ratio: 1;
+}
+
+.card--supervisor.card::after {
+    background-image: url("../images/icon-supervisor.svg");
+}
+.card--team-builder.card::after {
+    background-image: url("../images/icon-team-builder.svg");
+}
+.card--karma.card::after {
+    background-image: url("../images/icon-karma.svg");
+}
+.card--calculator.card::after {
+    background-image: url("../images/icon-calculator.svg");
+}
