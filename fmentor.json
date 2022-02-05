@@ -1,5 +1,17 @@
 [
     {
+        "name": "Base Apparel coming soon page",
+        "date": "5-Feb-2022",
+        "tags": [ "html", "css", "javascript" ],
+        "links": {
+            "livepage": "https://hyde-brendan.github.io/frontend-mentor/base-apparel-coming-soon-page/index",
+            "thumbnail": "frontend-mentor/base-apparel-coming-soon-page/screenshots/solution-desktop.png",
+            "fmentor": "https://www.frontendmentor.io/solutions/base-apparel-coming-soon-page-w-css-grid-and-animations--fqYEs8mV",
+            "github": "https://github.com/hyde-brendan/hyde-brendan.github.io/tree/main/frontend-mentor/base-apparel-coming-soon-page"
+        }
+    },
+
+    {
         "name": "Four card feature section",
         "date": "3-Feb-2022",
         "tags": [ "html", "css" ],
