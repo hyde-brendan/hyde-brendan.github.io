@@ -75,7 +75,7 @@ Besides forms, this was my first time using keyframes! They're actually much eas
 
 I need to better understand how to properly set the sizes for non-equal grid rows / columns in a dynamic context. I spent a large portion of time on this just trying to figure out what I needed to set `grid-template-columns` to in order to get the desired effect, but wasn't able to properly do what I wanted.
 
-Is there a way to use `minmax()` with a `fr` as the minimum, and a explicit maximum value (such as an `em`)? It didn't appear that was the case from what I saw, and knowing how to do a similar effect would be very useful to know as I continue to do more complex frontend design.
+Is there a way to use `minmax()` with a `fr` as the minimum, and an explicit maximum value (such as an `em`)? It didn't appear that was the case from what I saw, and knowing how to do a similar effect would be very useful to know as I continue to do more complex frontend design.
 
 ### Useful resources
 
