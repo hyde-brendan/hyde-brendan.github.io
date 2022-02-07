@@ -1,0 +1,318 @@
+/* ==================== */
+/* Custom properties    */
+/* ==================== */
+
+:root {
+    /* Colors */
+    --clr-primary-400-hsl: 0 100% 74%;
+    --clr-primary-400: hsl( var(--clr-primary-400-hsl) );
+
+    --clr-secondary-400-hsl: 154 59% 51%;
+    --clr-secondary-400: hsl( var(--clr-secondary-400-hsl) );
+    --clr-secondary-700-hsl: 154 57% 42%;
+    --clr-secondary-700: hsl( var(--clr-secondary-700-hsl) );
+
+    --clr-accent-400-hsl: 248 32% 49%;
+    --clr-accent-400: hsl( var(--clr-accent-400-hsl) );
+
+    --clr-neutral-100-hsl: 0 0% 100%;
+    --clr-neutral-100: hsl( var(--clr-neutral-100-hsl) );
+    --clr-neutral-300-hsl: 246 25% 77%;
+    --clr-neutral-300: hsl( var(--clr-neutral-300-hsl) );
+    --clr-neutral-400-hsl: 249 10% 26%;
+    --clr-neutral-400: hsl( var(--clr-neutral-400-hsl) );
+
+    /* Font families */
+    --ff-sans-serif: 'Poppins', sans-serif;
+
+    /* Font-sizes */
+    --fs-400: 1em; /* 16px */
+    --fs-200: 0.75em; /* 12px */
+    --fs-300: 0.875em; /* 14px */
+    --fs-500: 1.2857em; /* 18px */
+    --fs-700: clamp(1.75em, 4vw, 3.25em); /* 28px -> 52px */
+
+    /* Box shadow */
+    --box-shadow: 0 7px 0 hsl( 0 0% 0% / 0.2 );
+
+    /* Gaps */
+    --gap-1: 1rem;
+    --gap-1_5: 1.5rem;
+    --gap-2: 2rem;
+    --gap-4: 4rem;
+}
+
+
+/* ==================== */
+/* General reset        */
+/* ==================== */
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing + standardize font sizes */
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+/* Reset margins */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set up body */
+body {
+    background-color: var(--clr-primary-400);
+    background-image: url("../images/bg-intro-mobile.png");
+    color: var(--clr-neutral-100);
+    font-family: var(--ff-sans-serif, sans-serif);
+    font-size: var(--fs-400, 1em);
+    font-weight: 400;
+    text-align: center;
+    line-height: 1.6;
+
+    /* Center content */
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+@media (min-width: 65em) {
+    body {
+        background-image: url("../images/bg-intro-desktop.png");
+        background-size: cover;
+    }
+}
+
+
+/* ==================== */
+/* Utility classes      */
+/* ==================== */
+
+.card {
+    padding: 1.25em;
+    border-radius: 0.5em;
+    box-shadow: var(--box-shadow);
+}
+
+.text-white { color: var(--clr-neutral-100); }
+.text-primary { color: var(--clr-primary-400); }
+.text-neutral-300 { color: var(--clr-neutral-300); }
+
+.bg-white { background-color: var(--clr-neutral-100); }
+.bg-secondary { background-color: var(--clr-secondary-400); }
+.bg-accent { background-color: var(--clr-accent-400); }
+
+.fw-400 { font-weight: 400; }
+.fw-500 { font-weight: 500; }
+.fw-600 { font-weight: 600; }
+.fw-700 { font-weight: 700; }
+
+.fs-200 { font-size: var(--fs-200); }
+.fs-300 { font-size: var(--fs-300); }
+.fs-400 { font-size: var(--fs-400); }
+.fs-500 { font-size: var(--fs-500); }
+.fs-700 { font-size: var(--fs-700); }
+
+.uppercase { text-transform: uppercase; }
+
+/* ==================== */
+/* Components           */
+/* ==================== */
+
+main {
+    padding: 6em 1.51em 4em;
+}
+
+.main-content {
+    width: 100%;
+    max-width: 75em;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-4);
+    align-items: center;
+}
+
+@media (min-width: 65em) {
+    .main {
+        padding: 6em 1.5em;
+    }
+
+    .main-content {
+        flex-direction: row;
+    }
+}
+
+/* Header */
+.header--title {
+    font-size: var(--fs-700);
+    line-height: 1.1;
+    margin-bottom: 1em;
+}
+
+@media (min-width: 65em) {
+    .header {
+        text-align: left;
+    }
+}
+
+
+/* Sign-in */
+.sign-in {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-1_5);
+    width: 100%;
+    max-width: 35em;
+}
+
+.sign-in--trial {
+    width: 70%;
+    margin: auto;
+}
+
+/* Form */
+.form {
+    --_border-radius: 0.35em;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-1);
+}
+
+@media (min-width: 65em) {
+    .form {
+        padding: 1.25em;
+    }
+}
+
+.form input, .form button {
+    width: 100%;
+    padding: var(--gap-1);
+}
+
+.form input {
+    font-size: var(--fs-300);
+}
+
+.form button {
+    letter-spacing: 1px;
+}
+
+.form button:hover,
+.form button:focus {
+    filter: brightness(125%) saturate(75%);
+}
+
+.form button:active {
+    filter: none;
+}
+
+/* Form - input */
+form, input, button {
+    font-family: inherit;
+    font-weight: 600;
+}
+
+.form input {
+    border: 1px solid var(--clr-neutral-300);
+    border-radius: var(--_border-radius);
+}
+
+.form--input {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+}
+
+.form--input > *:first-child {
+    grid-column: 1 / 3;
+    grid-row: 1;
+}
+
+.form--input > *:first-child:not(:placeholder-shown) {
+    border-color: var(--clr-neutral-400);
+}
+
+.form--error-icon,
+.form--error-message {
+    display: none;
+}
+
+.form--error-icon {
+    grid-column: -1;
+    grid-row: 1;
+    justify-self: center;
+    align-self: center;
+
+    margin-right: 1em;
+}
+
+.form--error-message {
+    grid-column: 1 / 3;
+    grid-row: 2;
+    justify-self: end;
+
+    color: var(--clr-primary-400);
+    font-style: italic;
+    padding-top: 0.25em;
+}
+
+/* Form - submit button */
+.form button {
+    border: none;
+    border-radius: var(--_border-radius);
+    cursor: pointer;
+}
+
+.form--submit {
+    background-color: var(--clr-secondary-400);
+    box-shadow: 0 4px 0 var(--clr-secondary-700);
+}
+
+.form--agreement {
+    width: 90%;
+    margin: auto;
+}
+
+/* Error effects */
+.invalid .form--error-icon,
+.invalid .form--error-message {
+    display: block;
+}
+
+.invalid > *:first-child {
+    border: none;
+    outline: 2px solid var(--clr-primary-400);
+    outline-offset: -1px;
+
+    color: var(--clr-primary-400);
+}
+
+.shake .form--error-icon,
+.shake .form--error-message {
+    --_shake: 0.35rem;
+    animation: shake 100ms linear;
+}
+
+/* Keyframes */
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX( calc( var(--_shake) * -1 ) );
+    }
+    75% {
+        transform: translateX( var(--_shake) );
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
