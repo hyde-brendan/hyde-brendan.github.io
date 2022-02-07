@@ -1,5 +1,17 @@
 [
     {
+        "name": "Intro component with sign-up form",
+        "date": "7-Feb-2022",
+        "tags": [ "html", "css", "javascript" ],
+        "links": {
+            "livepage": "https://hyde-brendan.github.io/frontend-mentor/intro-component-with-signup-form/index",
+            "thumbnail": "frontend-mentor/intro-component-with-signup-form/screenshots/solution-desktop.png",
+            "fmentor": "https://www.frontendmentor.io/solutions/intro-component-with-signup-form-8C2hxd4Ja",
+            "github": "https://github.com/hyde-brendan/hyde-brendan.github.io/tree/main/frontend-mentor/intro-component-with-signup-form"
+        }
+    },
+
+    {
         "name": "Base Apparel coming soon page",
         "date": "5-Feb-2022",
         "tags": [ "html", "css", "javascript" ],
