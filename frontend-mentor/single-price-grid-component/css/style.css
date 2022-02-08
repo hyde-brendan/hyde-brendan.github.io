@@ -79,12 +79,6 @@ a {
     text-decoration: none;
 }
 
-/* Remove button border styling */
-button {
-    border: none;
-    cursor: pointer;
-}
-
 
 /* ==================== */
 /* Utility classes      */
@@ -193,10 +187,6 @@ main {
 .subscription--button:focus {
     filter: brightness(1.15) saturate(0.85);
     color: hsl( 0 0% 0% / 0.8 );
-}
-
-.subscription--button a {
-    color: inherit;
 }
 
 /* Why Us card */
