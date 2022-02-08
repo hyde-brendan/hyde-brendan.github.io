@@ -1,5 +1,17 @@
 [
     {
+        "name": "Single price grid component",
+        "date": "8-Feb-2022",
+        "tags": [ "html", "css", "javascript" ],
+        "links": {
+            "livepage": "https://hyde-brendan.github.io/frontend-mentor/single-price-grid-component/index",
+            "thumbnail": "frontend-mentor/single-price-grid-component/screenshots/solution-desktop.png",
+            "fmentor": "https://www.frontendmentor.io/solutions/single-price-grid-component-SyIVIKYe5",
+            "github": "https://github.com/hyde-brendan/hyde-brendan.github.io/tree/main/frontend-mentor/single-price-grid-component"
+        }
+    },
+
+    {
         "name": "Intro component with sign-up form",
         "date": "7-Feb-2022",
         "tags": [ "html", "css", "javascript" ],
