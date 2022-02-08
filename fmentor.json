@@ -2,7 +2,7 @@
     {
         "name": "Single price grid component",
         "date": "8-Feb-2022",
-        "tags": [ "html", "css", "javascript" ],
+        "tags": [ "html", "css" ],
         "links": {
             "livepage": "https://hyde-brendan.github.io/frontend-mentor/single-price-grid-component/index",
             "thumbnail": "frontend-mentor/single-price-grid-component/screenshots/solution-desktop.png",
