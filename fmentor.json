@@ -1,5 +1,17 @@
 [
     {
+        "name": "Ping coming soon page",
+        "date": "10-Feb-2022",
+        "tags": [ "html", "css", "javascript" ],
+        "links": {
+            "livepage": "https://hyde-brendan.github.io/frontend-mentor/ping-coming-soon-page/index",
+            "thumbnail": "frontend-mentor/ping-coming-soon-page/screenshots/solution-desktop.png",
+            "fmentor": "https://www.frontendmentor.io/solutions/ping-coming-soon-page-py2VPhJ3I",
+            "github": "https://github.com/hyde-brendan/hyde-brendan.github.io/tree/main/frontend-mentor/ping-coming-soon-page"
+        }
+    },
+
+    {
         "name": "Single price grid component",
         "date": "8-Feb-2022",
         "tags": [ "html", "css" ],
