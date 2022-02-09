@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+    <title>Frontend Mentor | Ping coming soon page</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <link href="css/style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300..700&display=swap" rel="stylesheet">
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" defer></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" defer></script>
+
+    <script src="js/index.js" defer></script>
+</head>
+<body>
+    <header>
+        <img src="./images/logo.svg" alt="Ping" class="logo">
+    </header>
+
+    <main>
+        <h1 class="title text-neutral-700 fs-700">
+            <span class="text-neutral-400 fw-300">We are launching</span>
+            soon!
+        </h1>
+        <p class="description text-neutral-700 fs-500">
+            Subscribe and get notified
+        </p>
+
+        <form class="form">
+            <div class="form--input">
+                <input type="text" placeholder="Your email address..." class="form--email pill text-neutral-700">
+                <label for="input" hidden>Email Address</label>
+                <small class="form--error-message text-accent-400 fs-300 italic">Please provide a valid email address</small>
+            </div>
+
+            <div class="form--submit-container"><button type="submit" class="form--submit pill bg-primary-400 text-neutral-100 fw-600">Notify Me</button></div>
+        </form>
+
+        <img src="./images/illustration-dashboard.png" alt="" class="hero">
+    </main>
+
+    <footer>
+        <div class="sites">
+            <a href="#" target="_blank" class="site">
+                <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+            <a href="#" target="_blank" class="site">
+                <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+            <a href="#" target="_blank" class="site">
+                <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+        </div>
+        <div class="copyright fs-300">
+            &copy; Copyright Ping. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- <footer>
+        <div class="attribution">
+            Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a> • Coded by <a href="#">Brendan Hyde</a>
+        </div>
+    </footer> -->
+</body>
+</html>
