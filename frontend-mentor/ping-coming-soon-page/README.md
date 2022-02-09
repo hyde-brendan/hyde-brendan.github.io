@@ -64,11 +64,7 @@ Got the chance to try out a few new things in this challenge:
 - This challenge did not include the SVGs for the social media icons this time, necessitating the need to use a font icon library. It's pretty clear that the design uses the ones from [Font Awesome](https://fontawesome.com/), but after testing some out, I felt that [Ionicons](https://ionic.io/ionicons) were the easiest to quickly set up without having to create any accounts or download any additional files. You can just import the set like a Google Font and get access to the `<ion-icon>` element:
 
 ```html
-<!-- In <head> -->
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" defer></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" defer></script>
-
-<!-- In <body> -->
+<!-- In <footer> -->
 <div class="sites">
     <a href="#" target="_blank" class="site">
         <ion-icon name="logo-facebook"></ion-icon>
@@ -80,6 +76,8 @@ Got the chance to try out a few new things in this challenge:
         <ion-icon name="logo-instagram"></ion-icon>
     </a>
 </div>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 ```
 
 - One of the first thing I noticed with the design was that the dashboard illustration did not shift down when the invalid email message popped up. I had a couple potential ideas that could work for that, but the one I ended up settling for involves setting a negative `margin-top` whose value is 0 when the error message isn't there, and the sum of the vertical space created when it is. It's not even as bad as it sounds, it just requires some trial-and-error:
