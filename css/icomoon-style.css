@@ -1,0 +1,43 @@
+@font-face {
+  font-family: "icomoon";
+  src:  url("../images/fonts/icomoon.eot?f6tks4");
+  src:  url("../images/fonts/icomoon.eot?f6tks4#iefix") format("embedded-opentype"),
+    url("../images/fonts/icomoon.ttf?f6tks4") format("truetype"),
+    url("../images/fonts/icomoon.woff?f6tks4") format("woff"),
+    url("../images/fonts/icomoon.svg?f6tks4#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  
+  /* Enable Ligatures ================ */
+  letter-spacing: 0;
+  -webkit-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga=1";
+  -moz-font-feature-settings: "liga";
+  -ms-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga";
+  -webkit-font-variant-ligatures: discretionary-ligatures;
+  font-variant-ligatures: discretionary-ligatures;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-frontend-mentor:before {
+  content: "\e900";
+}
+.icon-github:before {
+  content: "\eab0";
+}
