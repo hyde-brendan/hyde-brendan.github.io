@@ -1,0 +1,306 @@
+/* ==================== */
+/* Custom properties    */
+/* ==================== */
+
+:root {
+    /* Colors */
+    --clr-primary-200-hsl: 300 69% 71%;
+    --clr-primary-200: hsl( var(--clr-primary-200-hsl) );
+    --clr-primary-300-hsl: 321 90% 65%;
+    --clr-primary-300: hsl( var(--clr-primary-300-hsl) );
+    --clr-primary-400-hsl: 257 40% 49%;
+    --clr-primary-400: hsl( var(--clr-primary-400-hsl) );
+
+    --clr-neutral-100-hsl: 0 100% 100%;
+    --clr-neutral-100: hsl( var(--clr-neutral-100-hsl) );
+
+    /* Font families */
+    --ff-heading: 'Poppins', sans-serif;
+    --ff-sans-serif: 'Open Sans', sans-serif;
+
+    /* Font sizes */
+    --fs-400: clamp(1em, 3vw, 1.125em); /* 16px -> 18px */
+    --fs-300: clamp(0.75em, 2vw, 1.111em); /* 12px -> 20px */
+    --fs-700: clamp(1.5em, 3vw, 2.222em); /* 24px -> 40px */
+}
+
+
+/* ==================== */
+/* General reset        */
+/* ==================== */
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing + standardize font sizes */
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+/* Reset margins */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set up body */
+body {
+    /* Colors */
+    background-color: var(--clr-primary-400);
+    color: var(--clr-neutral-100);
+
+    /* Patterns */
+    background-image: url("../images/bg-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+
+    /* Font styling */
+    font-family: var(--ff-sans-serif);
+    font-size: var(--fs-400);
+    font-weight: 400;
+    line-height: 1.5;
+
+    /* Center content */
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    grid-template-rows: min-content auto min-content;
+}
+
+figure {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--ff-heading);
+    font-weight: 600;
+}
+
+@media (min-width: 50em) {
+    body {
+        background-image: url("../images/bg-desktop.svg");
+        background-size: auto 100%;
+    }
+}
+
+/* Remove animations if preferred */
+@media (prefers-reduced-motion: reduce) {  
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+/* ==================== */
+/* Utility classes      */
+/* ==================== */
+
+/* Colors */
+.text-primary-200 { color: var(--clr-primary-200) }
+.text-primary-300 { color: var(--clr-primary-300) }
+.text-primary-400 { color: var(--clr-primary-400) }
+.text-neutral-100 { color: var(--clr-neutral-100) }
+
+.bg-primary-200 { background-color: var(--clr-primary-200) }
+.bg-primary-300 { background-color: var(--clr-primary-300) }
+.bg-primary-400 { background-color: var(--clr-primary-400) }
+.bg-neutral-100 { background-color: var(--clr-neutral-100) }
+
+/* Font styling */
+.ff-heading { font-family: var(--ff-heading); }
+.ff-sans-serif { font-family: var(--ff-sans-serif); }
+
+.fs-300 { font-size: var(--fs-300); }
+.fs-400 { font-size: var(--fs-400); }
+.fs-700 { font-size: var(--fs-700); }
+
+.align-center { text-align: center; }
+
+
+/* ==================== */
+/* Components           */
+/* ==================== */
+
+header, main, footer {
+    width: 100%;
+    padding-inline: 2.25rem;
+}
+
+@media (min-width: 50em) {
+    header, main, footer {
+        padding-inline: 4.5rem;
+    }
+}
+
+/* Header */
+header {
+    /* Align header to top of screen */
+    place-self: start;
+
+    /* Align logo to left of header */
+    display: flex;
+    place-content: start;
+
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    /* outline: 1px dashed hsl(17 100% 74% / 0.35); */
+}
+
+.logo {
+    width: 130px;
+    margin-left: -2px;
+}
+
+@media (min-width: 50em) {
+    .logo {
+        width: 208px;
+    }
+}
+
+/* Main */
+main {
+    /* Align main above header */
+    place-self: start;
+
+    display: flex;
+    flex-direction: column;
+
+    /* outline: 1px dashed hsl(17 100% 74% / 0.35); */
+}
+
+.info-figure {
+    padding: 2rem 0;
+}
+
+.info--illustration {
+    width: min(100%, 700px);
+}
+
+.info-section {
+    padding: 0.8rem 0;
+    text-align: center;
+}
+
+.info--title {
+    padding-bottom: 1rem;
+}
+
+.info--coa {
+    display: block;
+    max-width: 200px;
+    margin: 1.5rem auto;
+    padding: 0.9em 0;
+    border-radius: 999px;
+    background-color: var(--clr-neutral-100);
+    color: var(--clr-primary-400);
+    box-shadow: 1px 5px 0.5em hsl(0 0% 0% / 0.25);
+
+    transition: color 150ms ease-in-out, background-color 150ms ease-in-out;
+}
+
+.info--coa:hover,
+.info--coa:focus {
+    color: var(--clr-neutral-100);
+    background-color: var(--clr-primary-200);
+}
+
+@media (min-width: 50em) {
+    main {
+        padding-top: 4rem;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 3.5rem;
+    }
+
+    .info-figure {
+        padding: 0;
+    }
+
+    .info-section {
+        margin-bottom: 5rem;
+        padding: 0;
+        text-align: left;
+        max-width: 520px;
+    }
+
+    .info--coa {
+        margin-inline: 0;
+        padding: 0.75em 0;
+    }
+}
+
+/* Footer */
+footer {
+    /* Align footer to bottom of screen */
+    place-self: end;
+
+    padding-bottom: 2rem;
+
+    /* outline: 1px dashed hsl(17 100% 74% / 0.35); */
+}
+
+.sites {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.site {
+    display: flex;
+    justify-content: center;
+    place-items: center;
+
+    --_icon-size: clamp(14px, 2vw, 18px);
+    font-size: var(--_icon-size);
+    padding: calc( var(--_icon-size) * 0.5 );
+    color: var(--clr-neutral-100);
+    border: 1px solid var(--clr-neutral-100);
+    border-radius: 50%;
+
+    transition: color 100ms ease-in-out, border 100ms ease-in-out;
+}
+
+.site:hover,
+.site:focus {
+    color: var(--clr-primary-300);
+    border-color: var(--clr-primary-300);
+}
+
+@media (min-width: 50em) {
+    .sites {
+        justify-content: end;
+        gap: 12px;
+    }
+}
+
+/* Animation */
+.fadeIn > * {
+    animation-name: fadeIn;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.fadeIn > *:nth-child(2) {
+    animation-delay: 0.5s;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    0% {
+        transform: translateY(3rem);
+        opacity: 0;
+    }
+    100% {
+        transform: none;
+        opacity: 1;
+    }
+}
