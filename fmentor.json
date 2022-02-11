@@ -1,5 +1,17 @@
 [
     {
+        "name": "Huddle landing page with intro section",
+        "date": "11-Feb-2022",
+        "tags": [ "html", "css" ],
+        "links": {
+            "livepage": "https://hyde-brendan.github.io/frontend-mentor/huddle-landing-page-with-intro-section/index",
+            "thumbnail": "frontend-mentor/huddle-landing-page-with-intro-section/screenshots/solution-desktop.png",
+            "fmentor": "https://www.frontendmentor.io/solutions/huddle-landing-page-with-intro-section-w-page-load-animations-cGzE3Bght",
+            "github": "https://github.com/hyde-brendan/hyde-brendan.github.io/tree/main/frontend-mentor/huddle-landing-page-with-intro-section"
+        }
+    },
+
+    {
         "name": "Ping coming soon page",
         "date": "10-Feb-2022",
         "tags": [ "html", "css", "javascript" ],
