@@ -1,0 +1,132 @@
+/* ==================== */
+/* Custom properties    */
+/* ==================== */
+
+:root {
+    /* Colors */
+    --clr-neutral-100-hsl: 0 0% 100%;
+    --clr-neutral-100: hsl( var(--clr-neutral-100-hsl) );
+    --clr-neutral-200-hsl: 212 45% 89%;
+    --clr-neutral-200: hsl( var(--clr-neutral-200-hsl) );
+    --clr-neutral-400-hsl: 220 15% 55%;
+    --clr-neutral-400: hsl( var(--clr-neutral-400-hsl) );
+    --clr-neutral-700-hsl: 218 44% 22%;
+    --clr-neutral-700: hsl( var(--clr-neutral-700-hsl) );
+
+    /* Font families */
+    --ff-sans-serif: 'Outfit', sans-serif;
+
+    /* Font sizes */
+    --fs-400: 0.875em; /* 15px */
+    --fs-700: 1.4em; /* 21px */
+
+    --corner: 1rem;
+}
+
+.test {
+    color: hsl(0, 0%, 100%);
+    color: hsl(212, 45%, 89%);
+    color: hsl(220, 15%, 55%);
+    color: hsl(218, 44%, 22%);
+}
+
+/* ==================== */
+/* General reset        */
+/* ==================== */
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing + standardize font sizes */
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+/* Reset margins */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set up body */
+body {
+    /* Colors */
+    background-color: var(--clr-neutral-200);
+    color: var(--clr-neutral-400);
+
+    /* Font styling */
+    font-family: var(--ff-sans-serif);
+    text-align: center;
+
+    /* Center content */
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
+
+
+/* ==================== */
+/* Utility classes      */
+/* ==================== */
+
+/* Colors */
+.text-neutral-100 { color: var(--clr-neutral-100) }
+.text-neutral-200 { color: var(--clr-neutral-200) }
+.text-neutral-400 { color: var(--clr-neutral-400) }
+.text-neutral-700 { color: var(--clr-neutral-700) }
+
+.bg-neutral-100 { background-color: var(--clr-neutral-100) }
+.bg-neutral-200 { background-color: var(--clr-neutral-200) }
+.bg-neutral-400 { background-color: var(--clr-neutral-400) }
+.bg-neutral-700 { background-color: var(--clr-neutral-700) }
+
+/* Font styling */
+.fs-400 { font-size: var(--fs-400); }
+.fs-700 { font-size: var(--fs-700); }
+
+
+/* ==================== */
+/* Components           */
+/* ==================== */
+
+main {
+    width: min(100%, 20rem);
+    padding: 1rem;
+    background-color: var(--clr-neutral-100);
+    border-radius: var(--corner);
+    box-shadow: 1px 1em 1em hsl(0 0% 0% / 0.05);
+}
+
+/* QR Code */
+.qr-code {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: calc( var(--corner) * 0.7 );
+    overflow: hidden;
+}
+
+.qr-code--image {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    transition: transform 350ms ease-in-out;
+}
+
+.qr-code--image:hover {
+    transform: scale(1.1);
+}
+
+/* Info */
+.info {
+    padding-top: 1.75rem;
+    padding-bottom: 1.25rem;
+}
+
+.info--heading {
+    padding-bottom: 0.5em;
+}
+
+.info--subheading {
+    max-width: 25ch;
+    margin: 0 auto;
+}
