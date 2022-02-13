@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+    <title>Frontend Mentor | Time tracking dashboard</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300..500&display=swap" rel="stylesheet">
+
+    <script src="js/index.js" defer></script>
+</head>
+<body>
+    <main>
+        <div class="main-grid">
+            <!-- User card -->
+            <article class="user-card">
+                <section class="user-card--top bg-primary">
+                    <img src="./images/image-jeremy.png" alt="" class="user--pfp">
+                    <div class="user--title">
+                        <small class="user-greeting fw-300 fs-300 text-neutral-400">Report for</small>
+                        <h1 class="user--name fw-300 fs-500">Jeremy Robson</h1>
+                    </div>
+                </section>
+
+                <section class="user-card--bottom bg-neutral-700">
+
+                    <button class="sort--daily text-neutral-500" aria-label="Daily" role="tab" tabindex="1" aria-selected="false">Daily</button>
+
+                    <button class="sort--weekly text-neutral-500" aria-label="Weekly" role="tab" tabindex="2" aria-selected="true">Weekly</button>
+
+                    <button class="sort--monthly text-neutral-500" aria-label="Monthly" role="tab" tabindex="3" aria-selected="false">Monthly</button>
+                    
+                </section>
+            </article>
+
+            <!-- Stat cards -->
+            <article class="card card--work bg-neutral-700">
+                <h2 class="card--title">Work</h2>
+                <button class="card--dots" aria-label="...">
+                    <img src="./images/icon-ellipsis.svg" alt="">
+                </button>
+                <data class="card--current fw-300 fs-700" value="32hrs">32hrs</data>
+                <p class="card--previous text-neutral-400 fs-300">
+                    <span class="">Last Week - </span>
+                    <data value="36hrs">36hrs</data>
+                </p>
+            </article>
+
+            <article class="card card--play bg-neutral-700">
+                <h2 class="card--title">Play</h2>
+                <button class="card--dots" aria-label="...">
+                    <img src="./images/icon-ellipsis.svg" alt="">
+                </button>
+                <data class="card--current fw-300 fs-700" value="10hrs">10hrs</data>
+                <p class="card--previous text-neutral-400 fs-300">
+                    <span class="">Last Week - </span>
+                    <data value="8hrs">8hrs</data>
+                </p>
+            </article>
+
+            <article class="card card--study bg-neutral-700">
+                <h2 class="card--title">Study</h2>
+                <button class="card--dots" aria-label="...">
+                    <img src="./images/icon-ellipsis.svg" alt="">
+                </button>
+                <data class="card--current fw-300 fs-700" value="4hrs">4hrs</data>
+                <p class="card--previous text-neutral-400 fs-300">
+                    <span class="">Last Week - </span>
+                    <data value="7hrs">7hrs</data>
+                </p>
+            </article>
+
+            <article class="card card--exercise bg-neutral-700">
+                <h2 class="card--title">Exercise</h2>
+                <button class="card--dots" aria-label="...">
+                    <img src="./images/icon-ellipsis.svg" alt="">
+                </button>
+                <data class="card--current fw-300 fs-700" value="4hrs">4hrs</data>
+                <p class="card--previous text-neutral-400 fs-300">
+                    <span class="">Last Week - </span>
+                    <data value="5hrs">5hrs</data>
+                </p>
+            </article>
+
+            <article class="card card--social bg-neutral-700">
+                <h2 class="card--title">Social</h2>
+                <button class="card--dots" aria-label="...">
+                    <img src="./images/icon-ellipsis.svg" alt="">
+                </button>
+                <data class="card--current fw-300 fs-700" value="5hrs">5hrs</data>
+                <p class="card--previous text-neutral-400 fs-300">
+                    <span class="">Last Week - </span>
+                    <data value="10hrs">10hrs</data>
+                </p>
+            </article>
+
+            <article class="card card--selfcare bg-neutral-700">
+                <h2 class="card--title">Self Care</h2>
+                <button class="card--dots" aria-label="...">
+                    <img src="./images/icon-ellipsis.svg" alt="">
+                </button>
+                <data class="card--current fw-300 fs-700" value="2hrs">2hrs</data>
+                <p class="card--previous text-neutral-400 fs-300">
+                    <span class="">Last Week - </span>
+                    <data value="2hrs">2hrs</data>
+                </p>
+            </article>
+
+        </div> <!-- /main-grid -->
+    </main>
+
+    <!-- <footer>
+        <div class="attribution">
+            Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a> • Coded by <a href="#">Brendan Hyde</a>
+        </div>
+    </footer> -->
+</body>
+</html>
