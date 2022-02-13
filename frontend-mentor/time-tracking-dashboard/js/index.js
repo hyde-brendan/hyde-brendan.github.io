@@ -25,7 +25,7 @@ sortBtns.forEach(sortBtn => {
             sortBtn.setAttribute("aria-selected", true);
 
             // Update all stat card values
-            updateStatCardValues(sortBtn.getAttribute("tabindex"));
+            updateStatCardValues(sortBtn.classList[0]);
         }
 
     });
@@ -33,7 +33,7 @@ sortBtns.forEach(sortBtn => {
 
 //////////////////////////////////////////////////
 
-function updateStatCardValues(tabindex) {
+function updateStatCardValues(btnType) {
     `
         Updates all the listed statistics on the stat cards in the DOM based on the data provided in data.json.
     `
@@ -43,10 +43,10 @@ function updateStatCardValues(tabindex) {
     jsonData.forEach(item => {
         // Update current values
         let newCurrVal = null;
-        switch (tabindex) {
-            case "1": newCurrVal = item.timeframes.daily.current; break;
-            case "2": newCurrVal = item.timeframes.weekly.current; break;
-            case "3": newCurrVal = item.timeframes.monthly.current; break;
+        switch (btnType) {
+            case "sort--daily": newCurrVal = item.timeframes.daily.current; break;
+            case "sort--weekly": newCurrVal = item.timeframes.weekly.current; break;
+            case "sort--monthly": newCurrVal = item.timeframes.monthly.current; break;
         }
         newCurrVal += (newCurrVal === 1 ? "hr" : "hrs");
 
@@ -56,10 +56,10 @@ function updateStatCardValues(tabindex) {
         // Update previous values
         let newPrevVal = null;
         let prevSpan = "";
-        switch (tabindex) {
-            case "1": newPrevVal = item.timeframes.daily.previous; prevSpan = "Last 24 Hours - "; break;
-            case "2": newPrevVal = item.timeframes.weekly.previous; prevSpan = "Last Week - "; break;
-            case "3": newPrevVal = item.timeframes.monthly.previous; prevSpan = "Last Month - "; break;
+        switch (btnType) {
+            case "sort--daily": newPrevVal = item.timeframes.daily.previous; prevSpan = "Last 24 Hours - "; break;
+            case "sort--weekly": newPrevVal = item.timeframes.weekly.previous; prevSpan = "Last Week - "; break;
+            case "sort--monthly": newPrevVal = item.timeframes.monthly.previous; prevSpan = "Last Month - "; break;
         }
         newPrevVal += (newPrevVal === 1 ? "hr" : "hrs");
 

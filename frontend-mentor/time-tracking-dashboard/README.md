@@ -92,7 +92,7 @@ sortBtns.forEach(sortBtn => {
 });
 ```
 
-Finally, the `updateStatCardValues` function reads the JSON file and updates all the stat card's values to the selected button's domain. `tabindex` is used for switch statements to set whether to read from the daily, weekly, or monthly values.
+Finally, the `updateStatCardValues` function reads the JSON file and updates all the stat card's values to the selected button's domain. The class list is used for switch statements to set whether to read from the daily, weekly, or monthly values.
 
 ### Continued development
 
