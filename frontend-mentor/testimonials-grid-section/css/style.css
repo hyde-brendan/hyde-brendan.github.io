@@ -1,0 +1,235 @@
+/* ==================== */
+/* Custom properties    */
+/* ==================== */
+
+:root {
+    /* Colors */
+    --clr-primary-400-hsl: 263 55% 52%;
+    --clr-primary-400: hsl( var(--clr-primary-400-hsl) );
+    --clr-primary-500-hsl: 217 19% 35%;
+    --clr-primary-500: hsl( var(--clr-primary-500-hsl) );
+    --clr-primary-600-hsl: 219 29% 14%;
+    --clr-primary-600: hsl( var(--clr-primary-600-hsl) );
+
+    --clr-neutral-100-hsl: 0 0% 100%;
+    --clr-neutral-100: hsl( var(--clr-neutral-100-hsl) );
+    --clr-neutral-200-hsl: 210 46% 95%;
+    --clr-neutral-200: hsl( var(--clr-neutral-200-hsl) );
+    --clr-neutral-300-hsl: 0 0% 81%;
+    --clr-neutral-300: hsl( var(--clr-neutral-300-hsl) );
+
+    /* Font families */
+    --ff-sans-serif: 'Barlow Semi Condensed', sans-serif;
+
+    /* Font sizes */
+    --fs-400: 0.8125em; /* 13px */
+    --fs-600: 1.462em; /* 19px */
+
+    --feature-offset: clamp(1.5rem, 7vw, 5rem);
+}
+
+.test {
+    color: hsl(263, 55%, 52%);
+    color: hsl(217, 19%, 35%);
+    color: hsl(219, 29%, 14%);
+    
+    color: hsl(0, 0%, 100%);
+    color: hsl(210, 46%, 95%);
+    color: hsl(0, 0%, 81%);
+}
+
+/* ==================== */
+/* General reset        */
+/* ==================== */
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing + standardize font sizes */
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+/* Reset margins */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set up body */
+body {
+    /* Colors */
+    background-color: var(--clr-neutral-200);
+
+    /* Font styling */
+    font-family: var(--ff-sans-serif);
+    font-size: var(--fs-400);
+    font-weight: 500;
+    line-height: 1.4;
+
+    /* Center content */
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
+
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ==================== */
+/* Utility classes      */
+/* ==================== */
+
+.card {
+    padding: 2rem;
+    border-radius: 0.5rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    transform: none;
+    transition: transform 300ms ease-in-out;
+}
+
+@media (min-width: 70em) {
+    .card {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.featured {
+    background-image: url("../images/bg-pattern-quotation.svg");
+    background-repeat: no-repeat;
+    background-position: top right var(--feature-offset);
+}
+
+.shadow {
+    box-shadow: 2rem 3.25rem 3em -2.5rem hsl( 0 0% 0% / 0.15 );
+}
+
+/* Colors */
+.text-primary-400 { color: var(--clr-primary-400); }
+.text-primary-500 { color: var(--clr-primary-500); }
+.text-primary-600 { color: var(--clr-primary-600); }
+.text-neutral-100 { color: var(--clr-neutral-100); }
+.text-neutral-200 { color: var(--clr-neutral-200); }
+.text-neutral-300 { color: var(--clr-neutral-300); }
+
+.bg-primary-400 { background-color: var(--clr-primary-400); }
+.bg-primary-500 { background-color: var(--clr-primary-500); }
+.bg-primary-600 { background-color: var(--clr-primary-600); }
+.bg-neutral-100 { background-color: var(--clr-neutral-100); }
+.bg-neutral-200 { background-color: var(--clr-neutral-200); }
+.bg-neutral-300 { background-color: var(--clr-neutral-300); }
+
+.outline-1 { outline: 2px solid hsl( var(--clr-neutral-100-hsl) / 0.5 ); }
+.outline-2 { outline: 2px solid var(--clr-primary-400); }
+
+/* Font styling */
+.fs-400 { font-size: var(--fs-400); }
+.fs-600 { font-size: var(--fs-600); }
+
+.fw-500 { font-weight: 500; }
+.fw-600 { font-weight: 600; }
+
+
+/* ==================== */
+/* Components           */
+/* ==================== */
+
+main {
+    padding: 4.25rem 1.5rem;
+}
+
+/* Grid elements */
+.main-grid {
+    width: 100%;
+    max-width: 72.5rem;
+    margin: auto;
+
+    display: grid;
+    grid-template-areas:
+        "card1"
+        "card2"
+        "card3"
+        "card4"
+        "card5";
+    gap: 1.5rem;
+}
+
+@media (min-width: 40em) {
+    .main-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "card1 card1"
+            "card2 card3"
+            "card4 card4"
+            "card5 card5";
+    }
+}
+
+@media (min-width: 55em) {
+    .main-grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+            "card1 card1 card1"
+            "card2 card4 card5"
+            "card3 card4 card5";
+    }
+}
+
+@media (min-width: 70em) {
+    .main-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+            "card1 card1 card2 card5"
+            "card3 card4 card4 card5";
+        column-gap: 2rem;
+    }
+}
+
+.card:nth-child(1) { grid-area: card1; }
+.card:nth-child(2) { grid-area: card2; }
+.card:nth-child(3) { grid-area: card3; }
+.card:nth-child(4) { grid-area: card4; }
+.card:nth-child(5) { grid-area: card5; }
+
+/* Card detail elements */
+.card--flex {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.card--img {
+    width: 2rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+.card--name {
+    font-weight: 500;
+}
+
+.card--title {
+    opacity: 50%;
+}
+
+.card--quote1 {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+}
+
+.card--quote2 {
+    opacity: 70%;
+    letter-spacing: 0.35px;
+}
