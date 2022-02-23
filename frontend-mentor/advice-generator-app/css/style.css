@@ -61,6 +61,7 @@ body {
     display: grid;
     place-items: center;
     min-height: 100vh;
+    grid-template-rows: 1fr;
 }
 
 /* Remove animations if preferred */
