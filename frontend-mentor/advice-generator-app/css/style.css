@@ -20,8 +20,10 @@
     --ff-sans-serif: 'Manrope', sans-serif;
 
     /* Font size */
-    --fs-400: 1.5em; /* 24px */
-    --fs-300: 0.5em; /* 12px */
+    --fs-400: clamp(1.5em, 4vw, 1.75em); /* 24px -> 28px */
+    --fs-300: 0.5em; /* 12px -> 14px */
+
+    --letter-spacing: 4px;
 }
 
 
@@ -84,7 +86,7 @@ body {
 .fs-300 { font-size: var(--fs-300); }
 
 .uppercase { text-transform: uppercase; }
-.letter-spacing { letter-spacing: 2px; }
+.letter-spacing { letter-spacing: var(--letter-spacing); }
 
 
 /* ==================== */
