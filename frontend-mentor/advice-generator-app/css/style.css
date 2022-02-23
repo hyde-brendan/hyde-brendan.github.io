@@ -1,0 +1,177 @@
+/* ==================== */
+/* Custom properties    */
+/* ==================== */
+
+:root {
+    /* Colors */
+    --clr-primary-400-hsl: 150 100% 66%;
+    --clr-primary-400: hsl( var(--clr-primary-400-hsl) );
+
+    --clr-neutral-200-hsl: 193 38% 86%;
+    --clr-neutral-200: hsl( var(--clr-neutral-200-hsl) );
+    --clr-neutral-300-hsl: 217 19% 38%;
+    --clr-neutral-300: hsl( var(--clr-neutral-300-hsl) );
+    --clr-neutral-400-hsl: 217 19% 24%;
+    --clr-neutral-400: hsl( var(--clr-neutral-400-hsl) );
+    --clr-neutral-500-hsl: 218 23% 16%;
+    --clr-neutral-500: hsl( var(--clr-neutral-500-hsl) );
+
+    /* Font families */
+    --ff-sans-serif: 'Manrope', sans-serif;
+
+    /* Font size */
+    --fs-400: 1.5em; /* 24px */
+    --fs-300: 0.5em; /* 12px */
+}
+
+
+/* ==================== */
+/* General reset        */
+/* ==================== */
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing + standardize font sizes */
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+/* Reset margins */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set up body */
+body {
+    /* Colors */
+    background-color: var(--clr-neutral-500);
+    color: var(--clr-neutral-200);
+
+    /* Font styling */
+    font-family: var(--ff-sans-serif);
+    font-size: var(--fs-400);
+    font-weight: 800;
+    line-height: 1.35;
+    text-align: center;
+
+    /* Center content */
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
+
+/* Remove animations if preferred */
+@media (prefers-reduced-motion: reduce) {  
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+/* ==================== */
+/* Utility classes      */
+/* ==================== */
+
+/* Colors */
+.text-primary-400 { color: var(--clr-primary-400); }
+.bg-primary-400 { background-color: var(--clr-primary-400); }
+
+/* Font styling */
+.fs-300 { font-size: var(--fs-300); }
+
+.uppercase { text-transform: uppercase; }
+.letter-spacing { letter-spacing: 2px; }
+
+
+/* ==================== */
+/* Components           */
+/* ==================== */
+
+main {
+    --card-padding: 1rem;
+    padding-inline: var(--card-padding);
+}
+
+/* Advice card */
+.advice-container {
+    width: min( calc( 100vw - (var(--card-padding) * 2) ), 33.5rem);
+    padding: 1.5rem clamp(1.5rem, 6vw, 2.5rem);
+    border-radius: clamp(0.6rem, 2vw, 1rem);
+    background-color: var(--clr-neutral-400);
+    box-shadow: 0 4rem 4rem hsl(0 0% 0% / 0.075);
+}
+
+/* Advice ID */
+.advice--id-container {
+    padding: 1.25rem 0;
+    transform: scaleY(0.9);
+}
+
+/* Advice divider */
+.advice--divider {
+    width: 100%;
+    height: 16px;
+    margin: 1.25rem 0 2.5rem;
+
+    background-image: url("../images/pattern-divider-desktop.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Advice reroll */
+.advice--reroll {
+    --button-size: 4rem;
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    margin: calc( var(--button-size) * -0.5 ) auto;
+
+    width: var(--button-size);
+    aspect-ratio: 1;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+
+    position: relative;
+    z-index: 1;
+}
+
+.advice--reroll-img {
+    position: relative;
+    z-index: 2;
+}
+
+.advice--reroll::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+
+    background-color: inherit;
+    border-radius: 50%;
+    filter: blur( calc( var(--button-size) * 0.33) );
+}
+
+.advice--reroll:hover::before,
+.advice--reroll:focus::before {
+    opacity: 1;
+}
+
+/* Animations */
+.advice--reroll-img.animate {
+    animation: reroll 1s cubic-bezier(.5, -0.5, .075, .9);
+}
+
+@keyframes reroll {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-540deg);
+    }
+}
