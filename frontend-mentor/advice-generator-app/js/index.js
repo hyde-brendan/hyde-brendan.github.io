@@ -40,7 +40,7 @@ function typewriter() {
 
     adviceTextEl.innerHTML = typewriterText.substring(0, typewriterIndex);
     typewriterIndex += 1;
-    if (typewriterIndex < typewriterTextLength) {
+    if (typewriterIndex <= typewriterTextLength) {
         setTimeout("typewriter()", typewriterSpeed);
     }
 }
