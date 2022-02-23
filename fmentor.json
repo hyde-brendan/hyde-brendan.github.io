@@ -1,5 +1,17 @@
 [
     {
+        "name": "Advice generator app",
+        "date": "24-Feb-2022",
+        "tags": [ "html", "css", "javascript", "api" ],
+        "links": {
+            "livepage": "https://hyde-brendan.github.io/frontend-mentor/advice-generator-app/index",
+            "thumbnail": "frontend-mentor/advice-generator-app/screenshots/solution-desktop.png",
+            "fmentor": "https://www.frontendmentor.io/solutions/advice-generator-app-w-typewriter-die-spin-animation-bVLsS7Xxl",
+            "github": "https://github.com/hyde-brendan/hyde-brendan.github.io/tree/main/frontend-mentor/advice-generator-app"
+        }
+    },
+
+    {
         "name": "Testimonials grid section",
         "date": "14-Feb-2022",
         "tags": [ "html", "css" ],
